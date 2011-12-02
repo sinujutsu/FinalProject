@@ -23,6 +23,8 @@ public:
     void newVelocity(GLdouble xNew, GLdouble yNew);
     void setMaterial(MaterialInfo mat); 
     
+    GLdouble getXVelocity();
+    GLdouble getYVelocity();
     GLdouble getXPosition();
     GLdouble getYPosition();
     GLdouble getRadius();

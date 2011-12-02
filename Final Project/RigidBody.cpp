@@ -17,6 +17,10 @@ RigidBody::~RigidBody(){
     
 }
 
+MaterialInfo RigidBody::getMaterial(){
+    return material;
+}
+
 GLdouble RigidBody::getXPosition(){
     return xPos;
 }

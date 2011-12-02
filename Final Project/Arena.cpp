@@ -30,14 +30,16 @@ void Arena::update(GLdouble dTime){
         y = rigid->getYPosition();
         w = surface->getWidth()/2.00;
         h = surface->getWidth()/2.00;
-        
-        if (x >= h || x <= -h) {
-            currentBody->newVelocity(-x,y);
-        }
-        if (y >= w || y <= -h) {
-            currentBody->newVelocity(x,-y);
-        }
         currentBody->printState();
+        cout << h << " " << w << endl;
+        //top or bottom bounce
+        if (x >= h || x <= -h) {
+            currentBody->newVelocity(-currentBody->getXVelocity(),currentBody->getYVelocity());
+        }
+        //side bounce
+        if (y >= w || y <= -h) {
+            currentBody->newVelocity(currentBody->getXVelocity(),-currentBody->getYVelocity());
+        }
         
     }
     
@@ -49,6 +51,7 @@ void Arena::draw(){
     for (GLuint i = 0; i<rigidBodies.size(); i++) {
         RigidBody* currentBody = rigidBodies[i];
         glPushMatrix();
+        //setMaterial(currentBody->getMaterial());
         glTranslated(currentBody->getXPosition(), 0, currentBody->getYPosition());
         glCallList(currentBody->getDisplayList());
         glPopMatrix();
@@ -63,8 +66,8 @@ Arena::Arena(GLuint numSpheres){
     
     rigidBodies.reserve(numSpheres);
     for (GLuint i = 0; i<numSpheres; i++) {
-        rigidBodies.push_back(new Sphere(0,0,10000000,0,1,MAT_BLUE));
-        //rigidBodies.push_back(new Sphere(2,2,0,0,1,MAT_RED));
+        rigidBodies.push_back(new Sphere(0,0,100,0,1,MAT_BLUE));
+        rigidBodies.push_back(new Sphere(2,2,5,2,1,MAT_RED));
     }
 }
 

@@ -12,8 +12,8 @@ void Sphere::printState(){
     cout << "Position (" << xPos << ","<< yPos << ")   Velcoity (" << xVel << "," << yVel << ")"<<endl;
 }
 void Sphere::updateState(GLdouble dTime){
-    xPos = xPos + xVel / dTime;
-    yPos = yPos + yVel / dTime;
+    xPos = xPos + xVel*1000000 / dTime;
+    yPos = yPos + yVel*1000000 / dTime;
 }
 void Sphere::setMaterial(MaterialInfo mat){
     material = mat;
@@ -26,6 +26,13 @@ void Sphere::newVelocity(GLdouble newX, GLdouble newY){
 
 GLdouble Sphere::getRadius(){
     return size;
+}
+
+GLdouble Sphere::getXVelocity(){
+    return xVel;
+}
+GLdouble Sphere::getYVelocity(){
+    return yVel;
 }
 
 

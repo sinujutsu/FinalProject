@@ -29,7 +29,7 @@ public:
     void updateState(GLdouble dTime);
     void setMaterial();
     
-    
+    MaterialInfo getMaterial();
     GLdouble getXPosition();
     GLdouble getYPosition();
     GLdouble getSize();
