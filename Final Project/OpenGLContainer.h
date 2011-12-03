@@ -20,6 +20,7 @@ public:
     void redraw();
     void reshape(GLuint witdth, GLuint height);
     void initGL();
+    void setMaterial(MaterialInfo m);
     
 private:
     Arena* theArena;
@@ -37,7 +38,7 @@ private:
     
     void draw();
     void lights();
-    void setMaterial(MaterialInfo m);
+    
 };
 
 

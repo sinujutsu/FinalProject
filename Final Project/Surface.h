@@ -20,9 +20,14 @@ public:
     GLuint getDisplayList();
     //GLdouble getBoundries();
     
-public:
     GLuint fieldd;
+    
+    
+    
+    
+private:
 
+    
 };
 
 #endif

@@ -10,15 +10,20 @@
 
 class Rectangular : public Surface{
 public:
-    Rectangular(GLdouble height, GLdouble width);
+    Rectangular(GLdouble height, GLdouble width, MaterialInfo fieldMaterial);
     virtual~Rectangular();
     
     GLdouble getHeight();
     GLdouble getWidth();
+    MaterialInfo getMat();
+    
+
     
 protected:
     GLdouble h;
     GLdouble w;
+    MaterialInfo mat;
+    
 };
 
 

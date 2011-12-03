@@ -30,15 +30,14 @@ void Arena::update(GLdouble dTime){
         y = rigid->getYPosition();
         w = surface->getWidth()/2.00;
         h = surface->getWidth()/2.00;
-        currentBody->printState();
-        cout << h << " " << w << endl;
-        //top or bottom bounceer
+
+        //top or bottom bounce
         if (x >= h || x <= -h) {
-            currentBody->newVelocity(-currentBody->getXVelocity(),currentBody->getYVelocity());
+            currentBody->bounceTopOrBottom();
         }
         //side bounce
         if (y >= w || y <= -h) {
-            currentBody->newVelocity(currentBody->getXVelocity(),-currentBody->getYVelocity());
+            currentBody->bounceSide();
         }
         
     }
@@ -47,27 +46,30 @@ void Arena::update(GLdouble dTime){
 
 //draws all objects, with their current position
 void Arena::draw(){
+    instance->setMaterial(surface->getMat());
     glCallList(surface->getDisplayList());
     for (GLuint i = 0; i<rigidBodies.size(); i++) {
         RigidBody* currentBody = rigidBodies[i];
         glPushMatrix();
-        //setMaterial(currentBody->getMaterial());
+        instance->setMaterial(currentBody->getMaterial());
         glTranslated(currentBody->getXPosition(), 0, currentBody->getYPosition());
         glCallList(currentBody->getDisplayList());
         glPopMatrix();
     }
     
 }
+
 //constructor
 //makes a new surface to play on
 //adds spheres to be drawn
 Arena::Arena(GLuint numSpheres){
-    surface = new Rectangular(10,10);
+    surface = new Rectangular(10,10,MAT_WHITE);
+
     
     rigidBodies.reserve(numSpheres);
     for (GLuint i = 0; i<numSpheres; i++) {
         rigidBodies.push_back(new Sphere(0,0,100,0,1,MAT_BLUE));
-        rigidBodies.push_back(new Sphere(2,2,5,2,1,MAT_RED));
+        //rigidBodies.push_back(new Sphere(2,2,5,2,1,MAT_RED));
     }
 }
 

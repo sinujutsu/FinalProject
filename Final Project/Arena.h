@@ -23,6 +23,8 @@ public:
     void update(GLdouble dTime);
     void draw();
     
+
+    
     void addRigidBody(RigidBody body);
     
     Arena(GLuint numSpheres);

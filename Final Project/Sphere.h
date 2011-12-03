@@ -20,11 +20,13 @@ protected:
 public:
     void printState();
     void updateState(GLdouble dTime);
-    void newVelocity(GLdouble xNew, GLdouble yNew);
     void setMaterial(MaterialInfo mat); 
+    void bounceTopOrBottom();
+    void bounceSide();
+    void bounceSphere(Sphere& otherSphere);
     
-    GLdouble getXVelocity();
-    GLdouble getYVelocity();
+    
+
     GLdouble getXPosition();
     GLdouble getYPosition();
     GLdouble getRadius();

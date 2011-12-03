@@ -19,21 +19,24 @@ void Sphere::setMaterial(MaterialInfo mat){
     material = mat;
 }
 
-void Sphere::newVelocity(GLdouble newX, GLdouble newY){
-    xVel = newX;
-    yVel = newY;
+
+void Sphere::bounceSide(){
+    xVel = -xVel;
+}
+
+void Sphere::bounceTopOrBottom(){
+    yVel = -yVel;
+}
+
+void Sphere::bounceSphere(Sphere &otherSphere){
+    
 }
 
 GLdouble Sphere::getRadius(){
     return size;
 }
 
-GLdouble Sphere::getXVelocity(){
-    return xVel;
-}
-GLdouble Sphere::getYVelocity(){
-    return yVel;
-}
+
 
 
 Sphere::Sphere(GLdouble xPositionInit, GLdouble yPositionInit, GLdouble xVelocity, GLdouble yVelocity, GLdouble radius, MaterialInfo mat){

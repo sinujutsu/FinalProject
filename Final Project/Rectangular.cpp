@@ -10,9 +10,10 @@
 #include "cs315.h"
 #include "MaterialInfo.h"
 
-Rectangular::Rectangular(GLdouble height, GLdouble width){
+Rectangular::Rectangular(GLdouble height, GLdouble width, MaterialInfo fieldMaterial){
     h = height;
     w = width;
+    mat = fieldMaterial;
     
     height = height/2;
     width = width/2;
@@ -37,6 +38,10 @@ GLdouble Rectangular::getHeight(){
 
 GLdouble Rectangular::getWidth(){
     return w;
+}
+
+MaterialInfo Rectangular::getMat(){
+    return mat;
 }
 
 
