@@ -28,16 +28,16 @@ void Arena::update(GLdouble dTime){
         currentBody->updateState(dTime);
         x = rigid->getXPosition();
         y = rigid->getYPosition();
-        w = surface->getWidth()/2.00;
-        h = surface->getWidth()/2.00;
+        w = surface->getWidth()/2.0;
+        h = surface->getWidth()/2.0;
 
-        //top or bottom bounce
+
         if (x >= h || x <= -h) {
-            currentBody->bounceTopOrBottom();
-        }
-        //side bounce
-        if (y >= w || y <= -h) {
             currentBody->bounceSide();
+        }
+
+        if (y >= w || y <= -h) {
+            currentBody->bounceTopOrBottom();
         }
         
     }
@@ -69,7 +69,7 @@ Arena::Arena(GLuint numSpheres){
     rigidBodies.reserve(numSpheres);
     for (GLuint i = 0; i<numSpheres; i++) {
         rigidBodies.push_back(new Sphere(0,0,100,0,1,MAT_BLUE));
-        //rigidBodies.push_back(new Sphere(2,2,5,2,1,MAT_RED));
+        rigidBodies.push_back(new Sphere(2,2,5,2,1,MAT_RED));
     }
 }
 

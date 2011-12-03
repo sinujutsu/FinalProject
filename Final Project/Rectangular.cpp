@@ -20,10 +20,12 @@ Rectangular::Rectangular(GLdouble height, GLdouble width, MaterialInfo fieldMate
     fieldd = glGenLists(1);
     glNewList(fieldd,GL_COMPILE);
     glBegin(GL_QUADS);
+    glPushMatrix();
     glVertex3d(width, 0, height);
     glVertex3d(-width, 0, height);
     glVertex3d(-width, 0, -height);
     glVertex3d(width, 0, -height);
+    glPopMatrix();
     glEnd();
     glEndList();
 }
