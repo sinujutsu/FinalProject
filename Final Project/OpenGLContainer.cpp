@@ -108,10 +108,10 @@ void OpenGLContainer::keyDown(unsigned char key, int x, int y){
 }
 //sets up one light
 void OpenGLContainer::lights(){
-    GLfloat position[] =  {0.0, 10.00, 0.0, 1.0};
+    GLfloat position[] =  {0.0, 100.00, 0.0, 1.0};
     GLfloat dcolor[] = {1,1,1,1};
     GLfloat acolor[] = {1,1,1,1};
-    GLfloat scolor[] = {0.4,0.4,0.4,1};
+    GLfloat scolor[] = {0.6,0.6,0.6,1};
     glEnable(GL_LIGHTING);
     glEnable(GL_LIGHT0);
     glLightfv(GL_LIGHT0, GL_POSITION, position);

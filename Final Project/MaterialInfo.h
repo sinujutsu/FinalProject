@@ -5,6 +5,7 @@
 #define MATERIAL_INFO
 #include <string>
 #include <iostream>
+
 using namespace std;
 
 class MaterialInfo {
@@ -104,12 +105,12 @@ public:
     
 };
 
-static const MaterialInfo MAT_WHITE ("#ffffffff","#ffffffff","#ffffffff",50);
-static const MaterialInfo MAT_GRAY  ("#70809080","#70809080","#70809080",50);
-static const MaterialInfo MAT_BLUE  ("#7fff00ff","#0000ffff","#0000ffff",90);
-//static const MaterialInfo MAT_GREEN ("#7fff00ff","#7fff00ff","#7fff00ff",100);
-static const MaterialInfo MAT_RED   ("#ff0000ff","#ff0000ff","#ff0000ff",50);
-//static const MaterialInfo MAT_YELLOW("#ffff00ff","#ffff00ff","#ffff00ff",100);
+static const MaterialInfo MAT_WHITE ("#F0F0F0ff","#F0F0F0ff","#ffffffff",100);
+static const MaterialInfo MAT_GRAY  ("#ffffffff","#ffffffff","#ffffffff",100);
+static const MaterialInfo MAT_BLUE  ("#7fff00ff","#3D00F5ff","#0000ffff",90);
+static const MaterialInfo MAT_GREEN ("#7fff00ff","#00F53Dff","#7fff00ff",100);
+static const MaterialInfo MAT_RED   ("#ff0000ff","#B8002Eff","#ff0000ff",50);
+static const MaterialInfo MAT_YELLOW("#ffff00ff","#F5F500ff","#ffff00ff",100);
 
 
 

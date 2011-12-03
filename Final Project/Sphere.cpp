@@ -28,7 +28,7 @@ void Sphere::bounceTopOrBottom(){
     yVel = -yVel;
 }
 
-void Sphere::bounceSphere(Sphere &otherSphere){
+void Sphere::bounceSphere(Sphere& otherSphere){
     
 }
 
