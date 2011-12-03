@@ -32,7 +32,7 @@ void Arena::update(GLdouble dTime){
         h = surface->getWidth()/2.00;
         currentBody->printState();
         cout << h << " " << w << endl;
-        //top or bottom bounce
+        //top or bottom bounceer
         if (x >= h || x <= -h) {
             currentBody->newVelocity(-currentBody->getXVelocity(),currentBody->getYVelocity());
         }
