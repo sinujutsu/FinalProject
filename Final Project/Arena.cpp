@@ -85,10 +85,16 @@ Arena::Arena(){
     xOffset = surface->getWidth()/2;
     yOffset = surface->getHeight()/2;
     
-    rigidBodies.push_back(new Sphere(0,0,15,15,1,MAT_BLUE));
-    rigidBodies.push_back(new Sphere(3,1,-4,10,1,MAT_RED));
-    rigidBodies.push_back(new Sphere(4,2,-2,17,1,MAT_GREEN));
-    rigidBodies.push_back(new Sphere(1,3,6,13,1,MAT_YELLOW));
+//    GLuint numBalls = 20;
+//    GLdouble ballPD = 0;
+//    GLdouble dBallPD = .5;
+//    for (GLuint i = 0; i<numBalls; i++) {
+//        rigidBodies.push_back(new Sphere(ballPD,ballPD,5,10,1,MAT_BLUE));
+//        ballPD += dBallPD;
+//    }
+    rigidBodies.push_back(new Sphere(0,0,1,1,1,MAT_RED));
+    rigidBodies.push_back(new Sphere(4,4,-3,5,1,MAT_BLUE));
+
 }
 
 //nothing
