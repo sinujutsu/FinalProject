@@ -9,6 +9,11 @@
 #include "MaterialInfo.h"
 #include "Arena.h"
 
+void keyDownCallback(unsigned char key, int x, int y);
+void redrawCallback();
+void reshapeCallback(int w, int h);
+void idleCallback();
+
 class OpenGLContainer {
 public:
     OpenGLContainer();
@@ -21,6 +26,9 @@ public:
     void reshape(GLuint witdth, GLuint height);
     void initGL();
     void setMaterial(MaterialInfo m);
+    
+
+    
     
 private:
     Arena* theArena;
@@ -43,7 +51,7 @@ private:
 
 
 static const GLdouble CAMERA_ADJ = 5;
-static const GLdouble ANIMATION_PRAM = 1;
+static const GLdouble ANIMATION_PRAM = 5;
 
 static const double PI = 3.141593;
 
