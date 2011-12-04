@@ -14,12 +14,15 @@
 
 #include <vector>
 #include <math.h>
+#include <iostream>
 using namespace std;
 
 
 //method responsible for updating the position/state of each object, based on elapsed time
 void Arena::update(GLdouble dTime){
     GLdouble x,y,w,h,r;
+    w = xOffset;
+    h = yOffset;
     for (GLuint i = 0; i<rigidBodies.size(); i++) {
         Sphere* currentBody = rigidBodies[i];
         RigidBody* rigid = currentBody;
@@ -27,14 +30,20 @@ void Arena::update(GLdouble dTime){
         x = rigid->getXPosition();
         y = rigid->getYPosition();
         r = currentBody->getSize();
-        w = surface->getWidth()/2.0;
-        h = surface->getWidth()/2.0;
-        if (x+r >= h || x-r <= -h) {
-            currentBody->bounceSide();
+        if (x > h) {
+            currentBody->bounceSide(h);
+        }else
+        if (x < -h) {
+            currentBody->bounceSide(-h);
         }
-        if (y+r >= w || y-r <= -h) {
-            currentBody->bounceTopOrBottom();
+
+        if (y > w) {
+            currentBody->bounceTopOrBottom(w);
+        }else
+        if (y < -h) {
+            currentBody->bounceTopOrBottom(-w);
         }
+        cout<< " x: " << x << " y: " << y<< endl;
         
     }
     
@@ -46,33 +55,24 @@ void Arena::draw(){
         RigidBody* currentBody = rigidBodies[i];
         glPushMatrix();
         instance->setMaterial(currentBody->getMaterial());
-        glTranslated(currentBody->getXPosition()+xOffset, 1, currentBody->getYPosition()-yOffset);
+        glTranslated(currentBody->getXPosition(), 1, currentBody->getYPosition());
         glCallList(currentBody->getDisplayList());
         glPopMatrix();
     }
-    glPushMatrix();
-    glTranslated(xOffset, 0, -yOffset);
+
     instance->setMaterial(surface->getMat());
     glCallList(surface->getDisplayList());
-    glPopMatrix();
-    
 }
 
 //constructor
 //makes a new surface to play on
 //adds spheres to be drawn
 Arena::Arena(){
-    surface = new Rectangular(10,10,MAT_GRAY);
+    surface = new Rectangular(8,8,MAT_GRAY);
     xOffset = surface->getWidth()/2;
     yOffset = surface->getHeight()/2;
     
-    rigidBodies.push_back(new Sphere(1,0,10,15,1,MAT_BLUE));
-    rigidBodies.push_back(new Sphere(0,0,5,2,1,MAT_RED));
-    rigidBodies.push_back(new Sphere(0,0,7,8.68,1,MAT_GREEN));
-    rigidBodies.push_back(new Sphere(0,0,15,30,1,MAT_YELLOW));
-    rigidBodies.push_back(new Sphere(0,0,60,2,1,MAT_RED));
-    rigidBodies.push_back(new Sphere(0,0,30,8.68,1,MAT_GREEN));
-    
+    rigidBodies.push_back(new Sphere(0,0,15,15,1,MAT_BLUE));    
 }
 
 //nothing

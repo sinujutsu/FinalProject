@@ -19,8 +19,8 @@ OpenGLContainer::OpenGLContainer(){
     pitch = 50;
     yaw = 0;
     zoom = 20;
-    centX = -5;
-    centZ = 5;
+    centX = 0;
+    centZ = 0;
     animate = false;
 }
 //Deconstructor
@@ -56,55 +56,48 @@ void OpenGLContainer::keyDown(unsigned char key, int x, int y){
             centZ = 0;
             animate = false;
             break;
-            
         case 'g':
+            last_time = CS315::getTime();
+            cur_time = CS315::getTime();
             animate = !animate;
             break;
-            
         case 'w':
             pitch -= CAMERA_ADJ;
             break;
-            
         case 's':
             pitch += CAMERA_ADJ;
             break;
-            
         case 'a':
             yaw -= CAMERA_ADJ;
             break;
-            
         case 'd':
             yaw += CAMERA_ADJ;
             break;
-            
         case 'q':
             zoom += CAMERA_ADJ/4;
             break;
-            
         case 'e':
             zoom -= CAMERA_ADJ/4;
             break;
-            
         case 'i':
             centZ -= CAMERA_ADJ/2;
             break;
-            
         case 'k':
             centZ += CAMERA_ADJ/2;
             break;
-            
         case 'j':
             centX -= CAMERA_ADJ/2;
             break;
-            
         case 'l':
             centX += CAMERA_ADJ/2;
             break;
-            
         default:
             break;
     }
-    redraw();
+    if (key != 'g') {
+        redraw();
+    }
+    
 }
 //sets up one light
 void OpenGLContainer::lights(){
@@ -122,9 +115,11 @@ void OpenGLContainer::lights(){
 //updates the arena with how much time has passed
 void OpenGLContainer::idle(){
     if (animate) {
-        
         cur_time = CS315::getTime();
-        elapsed = last_time - cur_time;
+        elapsed = (cur_time - last_time) * ANIMATION_PRAM;
+        last_time = cur_time;
+        
+        cout << elapsed << endl;
         theArena->update(elapsed);
         glutPostRedisplay();
     }

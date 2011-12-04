@@ -21,8 +21,8 @@ public:
     void printState();
     void updateState(GLdouble dTime);
     void setMaterial(MaterialInfo mat); 
-    void bounceTopOrBottom();
-    void bounceSide();
+    void bounceTopOrBottom(GLdouble correctPosition);
+    void bounceSide(GLdouble correctPosition);
     void bounceSphere(Sphere& otherSphere);
     void checkCollision(Sphere& otherSphere);
     

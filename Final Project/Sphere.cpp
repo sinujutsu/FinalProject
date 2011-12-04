@@ -12,20 +12,22 @@ void Sphere::printState(){
     cout << "Position (" << xPos << ","<< yPos << ")   Velcoity (" << xVel << "," << yVel << ")"<<endl;
 }
 void Sphere::updateState(GLdouble dTime){
-    xPos = xPos + xVel*1000000 / dTime;
-    yPos = yPos + yVel*1000000 / dTime;
+    xPos += xVel * dTime;
+    yPos += yVel * dTime;
 }
 void Sphere::setMaterial(MaterialInfo mat){
     material = mat;
 }
 
 
-void Sphere::bounceSide(){
+void Sphere::bounceSide(GLdouble correctPosition){
     xVel = -xVel;
+    xPos = correctPosition;
 }
 
-void Sphere::bounceTopOrBottom(){
+void Sphere::bounceTopOrBottom(GLdouble correctPosition){
     yVel = -yVel;
+    yPos = correctPosition;
 }
 
 void Sphere::bounceSphere(Sphere& otherSphere){
@@ -33,7 +35,7 @@ void Sphere::bounceSphere(Sphere& otherSphere){
 }
 
 void Sphere::checkCollision(Sphere &otherSphere){
-    //GLdouble distance = 
+
 }
 
 GLdouble Sphere::getSize(){
