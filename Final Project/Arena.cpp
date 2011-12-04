@@ -26,10 +26,11 @@ void Arena::update(GLdouble dTime){
     for (GLuint i = 0; i<rigidBodies.size(); i++) {
         Sphere* currentBody = rigidBodies[i];
         RigidBody* rigid = currentBody;
-        currentBody->updateState(dTime);
+        
         x = rigid->getXPosition();
         y = rigid->getYPosition();
         r = currentBody->getSize();
+        //check walls
         if (x > h) {
             currentBody->bounceSide(h);
         }else
@@ -43,7 +44,19 @@ void Arena::update(GLdouble dTime){
         if (y < -h) {
             currentBody->bounceTopOrBottom(-w);
         }
+        
+        //check balls
+        for(GLuint n = 0; n<rigidBodies.size(); n++){
+            if (n != i) {
+                if(currentBody->checkCollision(rigidBodies[n])){
+                    cout<< "Collision detected!"<< endl;
+                    currentBody->bounceSphere(rigidBodies[n]);
+                }
+            }
+        }
         cout<< " x: " << x << " y: " << y<< endl;
+        currentBody->updateState(dTime);
+        
         
     }
     
@@ -68,11 +81,12 @@ void Arena::draw(){
 //makes a new surface to play on
 //adds spheres to be drawn
 Arena::Arena(){
-    surface = new Rectangular(8,8,MAT_GRAY);
+    surface = new Rectangular(10,10,MAT_GRAY);
     xOffset = surface->getWidth()/2;
     yOffset = surface->getHeight()/2;
     
-    rigidBodies.push_back(new Sphere(0,0,15,15,1,MAT_BLUE));    
+    rigidBodies.push_back(new Sphere(0,0,15,15,1,MAT_BLUE));
+    rigidBodies.push_back(new Sphere(3,5,-4,10,1,MAT_RED));
 }
 
 //nothing

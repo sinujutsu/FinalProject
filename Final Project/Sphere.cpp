@@ -30,12 +30,47 @@ void Sphere::bounceTopOrBottom(GLdouble correctPosition){
     yPos = correctPosition;
 }
 
-void Sphere::bounceSphere(Sphere& otherSphere){
+void Sphere::bounceSphere(Sphere* otherSphere){
+    GLdouble thisVX, thisVY, thisUX, thisUY;
+    GLdouble otherVX, otherVY, otherUX, otherUY;
+    GLdouble thisM, otherM, totM, thisMdiff, otherMdiff;
+    
+    thisUX = this->xVel;
+    thisUY = this->yVel;
+    otherUX = otherSphere->xVel;
+    otherUY = otherSphere->yVel;
+    thisM = (this->size)*(this->size)*(this->size)*VOLUME_FACTOR;
+    otherM = (otherSphere->size)*(otherSphere->size)*(otherSphere->size)*VOLUME_FACTOR;
+    
+    totM = thisM + otherM;
+    thisMdiff = thisM - otherM;
+    otherMdiff = otherM - thisM;
+    
+    thisVX = (thisUX*thisMdiff+2*otherM*otherUX)/(totM);
+    thisVY = (thisUY*thisMdiff+2*otherM*otherUY)/(totM);
+    
+    otherVX = (otherUX*otherMdiff+2*thisM*thisUX)/(totM);
+    otherVY = (otherUY*otherMdiff+2*thisM*thisUY)/(totM);
+    
+    this->xVel = thisVX;
+    this->yVel = thisVY;
+    
+    otherSphere->xVel = otherVX;
+    otherSphere->yVel = otherVY;
     
 }
 
-void Sphere::checkCollision(Sphere &otherSphere){
-
+GLboolean Sphere::checkCollision(Sphere* otherSphere){
+    GLdouble thisXPos = this->xPos;
+    GLdouble thisYPos = this->yPos;
+    GLdouble otherXPos = otherSphere->xPos;
+    GLdouble otherYpos = otherSphere->yPos;
+    GLdouble distance = (thisXPos-otherXPos)*(thisXPos-otherXPos) + (thisYPos-otherYpos)*(thisYPos-otherYpos);
+    GLdouble minAllowedDistance = (this->size)*(this->size) + (otherSphere->size)*(otherSphere->size);
+    if ( (distance <  minAllowedDistance) ) {
+        return true;
+    } else 
+        return false;
 }
 
 GLdouble Sphere::getSize(){

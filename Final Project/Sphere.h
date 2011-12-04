@@ -12,7 +12,6 @@
 //can have its state updated
 //can be given a new velocity vector
 class Sphere : public RigidBody {
-    
 protected:
     GLdouble xVel;
     GLdouble yVel;
@@ -23,8 +22,8 @@ public:
     void setMaterial(MaterialInfo mat); 
     void bounceTopOrBottom(GLdouble correctPosition);
     void bounceSide(GLdouble correctPosition);
-    void bounceSphere(Sphere& otherSphere);
-    void checkCollision(Sphere& otherSphere);
+    void bounceSphere(Sphere* otherSphere);
+    GLboolean checkCollision(Sphere* otherSphere);
     
     
     GLdouble getSize();
@@ -36,3 +35,4 @@ public:
     virtual ~Sphere();
 };
 #endif
+static const GLdouble VOLUME_FACTOR = (4.00/3.00) * 3.141593;
