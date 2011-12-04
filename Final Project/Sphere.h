@@ -2,6 +2,8 @@
 //  Sphere.h
 
 
+// What the hell do these ifs do? Why won't my PlayerObject class
+// work without them, exactly? --Jake
 #ifndef Final_Project_Sphere_h
 #define Final_Project_Sphere_h
 

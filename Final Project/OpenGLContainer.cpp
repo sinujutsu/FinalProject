@@ -12,7 +12,7 @@
 using namespace std;
 
 
-//COnstructor
+//Constructor
 //Makes a new arena, sets initial view
 OpenGLContainer::OpenGLContainer(){
     theArena = new Arena();
@@ -23,12 +23,12 @@ OpenGLContainer::OpenGLContainer(){
     centZ = 0;
     animate = false;
 }
+
 //Deconstructor
 //does nothing
 OpenGLContainer::~OpenGLContainer(){}
 
 void OpenGLContainer::initalizeOpenGLContainer(){}
-
 
 //
 //calls draw method of the arena
@@ -36,6 +36,7 @@ void OpenGLContainer::draw(){
     theArena->draw();
     
 }
+
 //Method for setting the current material
 void OpenGLContainer::setMaterial(MaterialInfo m){
     float *diffuse = m.getDiffuse();
@@ -45,6 +46,7 @@ void OpenGLContainer::setMaterial(MaterialInfo m){
     glMaterialfv(GL_FRONT, GL_DIFFUSE,   m.getDiffuse());
     glColor4f(diffuse[0],diffuse[1],diffuse[2],1.0);
 }
+
 //Handles key presses
 void OpenGLContainer::keyDown(unsigned char key, int x, int y){
     switch (key) {
@@ -99,6 +101,7 @@ void OpenGLContainer::keyDown(unsigned char key, int x, int y){
     }
     
 }
+
 //sets up one light
 void OpenGLContainer::lights(){
     GLfloat position[] =  {0.0, 100.00, 0.0, 1.0};
@@ -112,6 +115,7 @@ void OpenGLContainer::lights(){
     glLightfv(GL_LIGHT0, GL_DIFFUSE, dcolor);
     glLightfv(GL_LIGHT0, GL_SPECULAR, scolor);
 }
+
 //updates the arena with how much time has passed
 void OpenGLContainer::idle(){
     if (animate) {
@@ -121,8 +125,8 @@ void OpenGLContainer::idle(){
         theArena->update(elapsed);
         glutPostRedisplay();
     }
-    
 }
+
 //camera position set here
 void OpenGLContainer::redraw(){
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -135,6 +139,7 @@ void OpenGLContainer::redraw(){
     draw();
     glutSwapBuffers();
 }
+
 //reshapes the window
 void OpenGLContainer::reshape(GLuint width, GLuint height){
     glViewport(0,0,width,height);
@@ -182,7 +187,6 @@ int main(int argc, char** argv) {
     instance->initGL();
     instance->initalizeOpenGLContainer();
     glutMainLoop();
-    
     return 0;
 }
 
