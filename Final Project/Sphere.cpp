@@ -11,10 +11,12 @@ using namespace std;
 void Sphere::printState(){
     cout << "Position (" << xPos << ","<< yPos << ")   Velcoity (" << xVel << "," << yVel << ")"<<endl;
 }
+
 void Sphere::updateState(GLdouble dTime){
     xPos += xVel * dTime;
     yPos += yVel * dTime;
 }
+
 void Sphere::setMaterial(MaterialInfo mat){
     material = mat;
 }
@@ -30,6 +32,7 @@ void Sphere::bounceTopOrBottom(GLdouble correctPosition){
     yPos = correctPosition;
 }
 
+// Would love some comment code here. What is thisUX? Is thisVX x velocity? --Jake
 void Sphere::bounceSphere(Sphere* otherSphere){
     GLdouble thisVX, thisVY, thisUX, thisUY;
     GLdouble otherVX, otherVY, otherUX, otherUY;
@@ -78,8 +81,6 @@ GLdouble Sphere::getSize(){
 }
 
 
-
-
 Sphere::Sphere(GLdouble xPositionInit, GLdouble yPositionInit, GLdouble xVelocity, GLdouble yVelocity, GLdouble radius, MaterialInfo mat){
     xPos = xPositionInit;
     yPos = yPositionInit;
@@ -95,6 +96,7 @@ Sphere::Sphere(GLdouble xPositionInit, GLdouble yPositionInit, GLdouble xVelocit
     glEndList();
     
 }
+
 Sphere::~Sphere(){
     glDeleteLists(shape, 1);
 }

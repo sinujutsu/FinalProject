@@ -2,7 +2,7 @@
 //  Arena.cpp
 //  Final Project
 //
-//  Created by Nick Burns and Ian Earle and Jacob Fuhrman yeah! on 11/15/11.
+//  Created by Nick Burns on 11/15/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
