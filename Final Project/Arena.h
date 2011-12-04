@@ -21,6 +21,7 @@ private:
     vector<Sphere*> rigidBodies;
     GLdouble xOffset;
     GLdouble yOffset;
+    GLboolean wallsOrBalls;
     
 public:
     void update(GLdouble dTime);

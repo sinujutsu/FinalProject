@@ -118,8 +118,6 @@ void OpenGLContainer::idle(){
         cur_time = CS315::getTime();
         elapsed = (cur_time - last_time) * ANIMATION_PRAM;
         last_time = cur_time;
-        
-        cout << elapsed << endl;
         theArena->update(elapsed);
         glutPostRedisplay();
     }
