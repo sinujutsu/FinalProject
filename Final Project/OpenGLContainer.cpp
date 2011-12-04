@@ -15,12 +15,12 @@ using namespace std;
 //COnstructor
 //Makes a new arena, sets initial view
 OpenGLContainer::OpenGLContainer(){
-    theArena = new Arena(1);
+    theArena = new Arena();
     pitch = 50;
     yaw = 0;
     zoom = 20;
-    centX = 0;
-    centZ = 0;
+    centX = -5;
+    centZ = 5;
     animate = false;
 }
 //Deconstructor

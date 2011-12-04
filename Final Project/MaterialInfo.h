@@ -64,19 +64,15 @@ public:
                 result += value;
             }
         }
-        cout << "Hex: " << hh << " Base 10: "<<result<< endl;
         return result/255.0;
     }
     
     
-    //string for each component of material should be in the form of #ffffffff
+    //string for each component of material should be in the form of #fffffff
+    //one string is needed for specualr ambient, and diffuse, and a number from 0 to 128 for chine level
     
     
     MaterialInfo (string specHex, string ambHex, string diffHex, float shine){ 
-        //float redSpec, greenSpec, blueSpec, alphSpec, redAmb, greenAmb, blueAmb, alphAmb, redDiff, greenDiff, blueDiff, alphDiff;
-        
-        
-        
         spec[0] = hexToGL(specHex.substr(1,2));
         spec[1] = hexToGL(specHex.substr(3,2));
         spec[2] = hexToGL(specHex.substr(5,2));
@@ -101,26 +97,15 @@ public:
     float *getDiffuse() { return diff; }
     float *getAmbient() { return amb; }
     float getShininess() { return shininess; }
-    
-    
 };
-
-static const MaterialInfo MAT_WHITE ("#F0F0F0ff","#F0F0F0ff","#ffffffff",100);
-static const MaterialInfo MAT_GRAY  ("#ffffffff","#ffffffff","#ffffffff",100);
+//***************************************************************************
+//define new materials here__________Specular_____Ambient_____Diffuse___Shine
+static const MaterialInfo MAT_WHITE ("#F0F0F0ff","#F0F0F000","#ffffffff",90);
+static const MaterialInfo MAT_GRAY  ("#ffffffff","#ffffffff","#ffffffff",90);
 static const MaterialInfo MAT_BLUE  ("#7fff00ff","#3D00F5ff","#0000ffff",90);
-static const MaterialInfo MAT_GREEN ("#7fff00ff","#00F53Dff","#7fff00ff",100);
-static const MaterialInfo MAT_RED   ("#ff0000ff","#B8002Eff","#ff0000ff",50);
-static const MaterialInfo MAT_YELLOW("#ffff00ff","#F5F500ff","#ffff00ff",100);
-
-
-
-
-//MaterialInfo MAT_TREE   (57,230,0,      27,107,0,         27,107,0,     80);
-//MaterialInfo MAT_GRASS  (0,184,46,      0,184,46,         0,184,46,       50);
-//MaterialInfo MAT_TRUNK  (77,0,0,        77,0,0,           77,0,0,         90);
-//MaterialInfo MAT_ROOF   (255,255,255,   100,100,100,      84,84,84,       10);
-//MaterialInfo MAT_BARN   (221,59,62,      117,31,33,       153,70,58,      60);
-//MaterialInfo MAT_SUN    (240,175,255,   226,202,79,       255,202,79,     30);
+static const MaterialInfo MAT_GREEN ("#7fff00ff","#00F53D00","#7fff00ff",90);
+static const MaterialInfo MAT_RED   ("#ff0000ff","#B8002Eff","#ff0000ff",90);
+static const MaterialInfo MAT_YELLOW("#ffff00ff","#F5F500ff","#ffff00ff",90);
 
 #endif
 

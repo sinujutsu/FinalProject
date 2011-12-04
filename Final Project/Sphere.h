@@ -24,12 +24,12 @@ public:
     void bounceTopOrBottom();
     void bounceSide();
     void bounceSphere(Sphere& otherSphere);
+    void checkCollision(Sphere& otherSphere);
     
     
-
+    GLdouble getSize();
     GLdouble getXPosition();
     GLdouble getYPosition();
-    GLdouble getRadius();
     GLuint getDisplayList();
     
     Sphere(GLdouble xPositionInit, GLdouble yPositionInit, GLdouble xVelocity, GLdouble yVelocity, GLdouble radius, MaterialInfo mat);

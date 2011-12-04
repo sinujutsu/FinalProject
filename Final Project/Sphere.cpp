@@ -32,7 +32,11 @@ void Sphere::bounceSphere(Sphere& otherSphere){
     
 }
 
-GLdouble Sphere::getRadius(){
+void Sphere::checkCollision(Sphere &otherSphere){
+    //GLdouble distance = 
+}
+
+GLdouble Sphere::getSize(){
     return size;
 }
 

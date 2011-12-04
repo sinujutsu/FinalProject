@@ -19,6 +19,9 @@ class Arena{
 private:
     Rectangular* surface;
     vector<Sphere*> rigidBodies;
+    GLdouble xOffset;
+    GLdouble yOffset;
+    
 public:
     void update(GLdouble dTime);
     void draw();
@@ -27,7 +30,7 @@ public:
     
     void addRigidBody(RigidBody body);
     
-    Arena(GLuint numSpheres);
+    Arena();
     virtual ~Arena();
 };
 
