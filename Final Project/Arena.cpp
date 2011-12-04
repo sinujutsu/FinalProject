@@ -86,7 +86,9 @@ Arena::Arena(){
     yOffset = surface->getHeight()/2;
     
     rigidBodies.push_back(new Sphere(0,0,15,15,1,MAT_BLUE));
-    rigidBodies.push_back(new Sphere(3,5,-4,10,1,MAT_RED));
+    rigidBodies.push_back(new Sphere(3,1,-4,10,1,MAT_RED));
+    rigidBodies.push_back(new Sphere(4,2,-2,17,1,MAT_GREEN));
+    rigidBodies.push_back(new Sphere(1,3,6,13,1,MAT_YELLOW));
 }
 
 //nothing
