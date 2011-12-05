@@ -21,7 +21,6 @@ void Sphere::setMaterial(MaterialInfo mat){
     material = mat;
 }
 
-
 void Sphere::bounceSide(GLdouble correctPosition){
     xVel = -xVel;
     xPos = correctPosition;

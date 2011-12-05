@@ -27,7 +27,6 @@ public:
     void bounceSphere(Sphere* otherSphere);
     GLboolean checkCollision(Sphere* otherSphere);
     
-    
     GLdouble getSize();
     GLdouble getXPosition();
     GLdouble getYPosition();

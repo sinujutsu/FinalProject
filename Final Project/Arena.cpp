@@ -3,7 +3,7 @@
 //  Final Project
 //
 //  Created by Nick Burns on 11/15/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2011 My Company Name. All rights reserved.
 //
 
 #include "Arena.h"
