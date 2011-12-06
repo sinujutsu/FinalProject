@@ -91,7 +91,7 @@ Sphere::Sphere(GLdouble xPositionInit, GLdouble yPositionInit, GLdouble xVelocit
     shape = glGenLists(1);
     glNewList(shape,GL_COMPILE);
     setMaterial(material);
-    glutSolidSphere(size, 80, 80);
+    glutWireSphere(size, 4, 4);
     glEndList();
     
 }

@@ -152,7 +152,7 @@ void OpenGLContainer::reshape(GLuint width, GLuint height){
 
 void OpenGLContainer::initGL(){
     glShadeModel(GL_SMOOTH);              
-    glClearColor(0.0f, 0.0f, 0.0f, 0.0f);       
+    glClearColor(131.0/255.0, 152.0/255.0, 163.0/255.0, 0.0f);       
     glEnable(GL_DEPTH_TEST);
     glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
     glFrontFace(GL_CCW);

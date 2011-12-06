@@ -14,7 +14,7 @@ Rectangular::Rectangular(GLdouble height, GLdouble width, MaterialInfo fieldMate
     h = height;
     w = width;
     mat = fieldMaterial;
-    
+    GLdouble thick = 2;
     height = height/2;
     width = width/2;
     fieldd = glGenLists(1);
@@ -25,6 +25,12 @@ Rectangular::Rectangular(GLdouble height, GLdouble width, MaterialInfo fieldMate
     glVertex3d(-width, 0, height);
     glVertex3d(-width, 0, -height);
     glVertex3d(width, 0, -height);
+    glPopMatrix();
+    glPushMatrix();
+    glBegin(GL_QUADS);
+    glVertex3d(height+thick, 0, width+thick);
+    glVertex3d(<#GLdouble x#>, <#GLdouble y#>, <#GLdouble z#>)
+    
     glPopMatrix();
     glEnd();
     glEndList();
