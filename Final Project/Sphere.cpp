@@ -13,22 +13,28 @@ void Sphere::printState(){
 }
 
 void Sphere::updateState(GLdouble dTime){
-    xPos += xVel * dTime/100;
-    yPos += yVel * dTime/100;
+    xPos += xVel * dTime;
+    yPos += yVel * dTime;
 }
 
 void Sphere::setMaterial(MaterialInfo mat){
     material = mat;
 }
 
-void Sphere::bounceSide(GLdouble correctPosition){
+void Sphere::bounceSide(){
+    //xPos -= xVel*UNSTICK_TIME;
     xVel = -xVel;
-    xPos = correctPosition;
+    
+
+    
 }
 
-void Sphere::bounceTopOrBottom(GLdouble correctPosition){
+void Sphere::bounceTopOrBottom(){
+    //yPos -= yVel*UNSTICK_TIME;
     yVel = -yVel;
-    yPos = correctPosition;
+
+
+    
 }
 
 // U - velocity before
@@ -65,6 +71,12 @@ void Sphere::bounceSphere(Sphere* otherSphere){
     
     otherSphere->xVel = otherVX;
     otherSphere->yVel = otherVY;
+    
+//    this->xPos += thisUX * UNSTICK_TIME;
+//    this->yPos += thisUY * UNSTICK_TIME;
+//    otherSphere->xPos += otherUX * UNSTICK_TIME;
+//    otherSphere->yPos += otherUY * UNSTICK_TIME;
+;
     
 }
 

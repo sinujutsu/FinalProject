@@ -20,6 +20,7 @@ using namespace std;
 
 //method responsible for updating the position/state of each object, based on elapsed time
 void Arena::update(GLdouble dTime){
+    GLdouble backInTime = -dTime *4;
     GLdouble x,y,w,h,r;
     w = xOffset;
     h = yOffset;
@@ -36,17 +37,22 @@ void Arena::update(GLdouble dTime){
         
         if(wallsOrBalls){
             if (x > h) {
-                currentBody->bounceSide(h);
+                currentBody->updateState(backInTime);
+                currentBody->bounceSide();
+                
             }else
                 if (x < -h) {
-                    currentBody->bounceSide(-h);
+                    currentBody->updateState(backInTime);
+                    currentBody->bounceSide();
                 }
             
             if (y > w) {
-                currentBody->bounceTopOrBottom(w);
+                currentBody->updateState(backInTime);
+                currentBody->bounceTopOrBottom();
             }else
                 if (y < -w) {
-                    currentBody->bounceTopOrBottom(-w);
+                    currentBody->updateState(backInTime);
+                    currentBody->bounceTopOrBottom();
                 }
             wallsOrBalls = false;
         }
@@ -55,7 +61,10 @@ void Arena::update(GLdouble dTime){
             for(GLuint n = 0; n<rigidBodies.size(); n++){
                 if (n != i) {
                     if(currentBody->checkCollision(rigidBodies[n])){
+                        currentBody->updateState(backInTime);
+                        rigidBodies[n]->updateState(backInTime);
                         currentBody->bounceSphere(rigidBodies[n]);
+
                     }
                 }
             }
@@ -88,13 +97,13 @@ void Arena::draw(){
 //adds spheres to be drawn
 Arena::Arena(){
     wallsOrBalls = true;
-    surface = new Rectangular(10,10,MAT_GRAY);
+    surface = new Rectangular(100,100,MAT_GRAY);
     xOffset = surface->getWidth()/2;
     yOffset = surface->getHeight()/2;
     
-    GLuint numBalls = 0;
+    GLuint numBalls = 20;
     GLdouble ballPD = 0;
-    GLdouble dBallPD = .5;
+    GLdouble dBallPD = 2;
     for (GLuint i = 0; i<numBalls; i++) {
         rigidBodies.push_back(new Sphere(ballPD,ballPD,5,10,1,MAT_BLUE));
         ballPD += dBallPD;

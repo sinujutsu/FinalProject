@@ -22,8 +22,8 @@ public:
     void printState();
     void updateState(GLdouble dTime);
     void setMaterial(MaterialInfo mat); 
-    void bounceTopOrBottom(GLdouble correctPosition);
-    void bounceSide(GLdouble correctPosition);
+    void bounceTopOrBottom();
+    void bounceSide();
     void bounceSphere(Sphere* otherSphere);
     GLboolean checkCollision(Sphere* otherSphere);
     
@@ -37,3 +37,5 @@ public:
 };
 #endif
 static const GLdouble VOLUME_FACTOR = (4.00/3.00) * 3.141593;
+
+//static const GLdouble UNSTICK_TIME = .002;
