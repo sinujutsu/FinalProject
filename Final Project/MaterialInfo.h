@@ -14,6 +14,7 @@ private:
     float spec[4];
     float amb [4];
     float diff [4];
+    float emit [4];
     float shininess;
     
 public:
@@ -69,24 +70,31 @@ public:
     
     
     //string for each component of material should be in the form of #fffffff
-    //one string is needed for specualr ambient, and diffuse, and a number from 0 to 128 for chine level
+    //one string is needed for specualr ambient, and diffuse, and a number from 0 to 128 for shine level
     
     
-    MaterialInfo (string specHex, string ambHex, string diffHex, float shine){ 
+    MaterialInfo (string specHex, string ambHex, string diffHex, string emitHex, float shine){ 
         spec[0] = hexToGL(specHex.substr(1,2));
         spec[1] = hexToGL(specHex.substr(3,2));
         spec[2] = hexToGL(specHex.substr(5,2));
-        spec[3] = hexToGL(specHex.substr(7,2));
+        //spec[3] = hexToGL(specHex.substr(7,2));
         
         amb[0] = hexToGL(ambHex.substr(1,2));
         amb[1] = hexToGL(ambHex.substr(3,2));
         amb[2] = hexToGL(ambHex.substr(5,2));
-        amb[3] = hexToGL(ambHex.substr(7,2));
+        //amb[3] = hexToGL(ambHex.substr(7,2));
         
         diff[0] = hexToGL(diffHex.substr(1,2));
         diff[1] = hexToGL(diffHex.substr(3,2));
         diff[2] = hexToGL(diffHex.substr(5,2));
-        diff[3] = hexToGL(diffHex.substr(7,2));
+        //diff[3] = hexToGL(diffHex.substr(7,2));
+        
+        emit[0]= hexToGL(emitHex.substr(1,2));
+        emit[1]= hexToGL(emitHex.substr(3,2));
+        emit[2]= hexToGL(emitHex.substr(5,2));
+        //emit[3]= hexToGL(emitHex.substr(7,2));
+        
+        spec[3]=amb[3]=diff[3]=emit[3]=1;
         
         shininess = shine;
     }
@@ -96,16 +104,17 @@ public:
     float *getSpecular() { return spec; }
     float *getDiffuse() { return diff; }
     float *getAmbient() { return amb; }
+    float *getEmitted() {return emit; }
     float getShininess() { return shininess; }
 };
 //***************************************************************************
-//define new materials here__________Specular_____Ambient_____Diffuse___Shine
-static const MaterialInfo MAT_WHITE ("#F0F0F0ff","#F0F0F000","#ffffffff",90);
-static const MaterialInfo MAT_GRAY  ("#ffffffff","#ffffffff","#ffffffff",90);
-static const MaterialInfo MAT_BLUE  ("#7fff00ff","#3D00F5ff","#0000ffff",90);
-static const MaterialInfo MAT_GREEN ("#7fff00ff","#00F53D00","#7fff00ff",90);
-static const MaterialInfo MAT_RED   ("#ff0000ff","#B8002Eff","#ff0000ff",90);
-static const MaterialInfo MAT_YELLOW("#ffff00ff","#F5F500ff","#ffff00ff",90);
+//define new materials here__________Specular___Ambient__Diffuse___Emitted__Shine
+static const MaterialInfo MAT_WHITE ("#F0F0F0","#F0F0F0","#ffffff","F7EDF0",90);
+static const MaterialInfo MAT_GRAY  ("#ffffff","#ffffff","#ffffff","BAA9AE",90);
+static const MaterialInfo MAT_BLUE  ("#7fff00","#3D00F5","#0000ff","3881CF",90);
+static const MaterialInfo MAT_GREEN ("#7fff00","#00F53D","#7fff00","38CF79",90);
+static const MaterialInfo MAT_RED   ("#ff0000","#B8002E","#ff0000","FA9039",90);
+static const MaterialInfo MAT_YELLOW("#ffff00","#FF0000","#FF0000","FAF739",90);
 
 #endif
 

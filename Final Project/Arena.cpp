@@ -45,7 +45,7 @@ void Arena::update(GLdouble dTime){
             if (y > w) {
                 currentBody->bounceTopOrBottom(w);
             }else
-                if (y < -h) {
+                if (y < -w) {
                     currentBody->bounceTopOrBottom(-w);
                 }
             wallsOrBalls = false;
@@ -88,7 +88,7 @@ void Arena::draw(){
 //adds spheres to be drawn
 Arena::Arena(){
     wallsOrBalls = true;
-    surface = new Rectangular(5,5,MAT_GRAY);
+    surface = new Rectangular(10,10,MAT_GRAY);
     xOffset = surface->getWidth()/2;
     yOffset = surface->getHeight()/2;
     
@@ -101,6 +101,8 @@ Arena::Arena(){
     }
     rigidBodies.push_back(new Sphere(0,0,1,1,1,MAT_RED));
     rigidBodies.push_back(new Sphere(4,4,-3,5,1,MAT_BLUE));
+    rigidBodies.push_back(new Sphere(0,-4,2,8,1,MAT_YELLOW));
+    rigidBodies.push_back(new Sphere(-4,0,6,3,1,MAT_GREEN));
     
 }
 

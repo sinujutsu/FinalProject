@@ -44,6 +44,7 @@ void OpenGLContainer::setMaterial(MaterialInfo m){
     glMaterialf (GL_FRONT, GL_SHININESS, m.getShininess());
     glMaterialfv(GL_FRONT, GL_AMBIENT,   m.getAmbient());
     glMaterialfv(GL_FRONT, GL_DIFFUSE,   m.getDiffuse());
+    glMaterialfv(GL_FRONT, GL_EMISSION, m.getEmitted());
     glColor4f(diffuse[0],diffuse[1],diffuse[2],1.0);
 }
 

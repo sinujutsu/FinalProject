@@ -15,13 +15,13 @@ Rectangular::Rectangular(GLdouble height, GLdouble width, MaterialInfo fieldMate
     h = height;
     w = width;
     mat = fieldMaterial;
-    GLdouble thick = 1;
+    GLdouble thick = 2;
+    
     height = height/2;
     width = width/2;
     fieldd = glGenLists(1);
     glNewList(fieldd,GL_COMPILE);
-    
-    instance->setMaterial(MAT_RED);
+
     glBegin(GL_QUADS);
     //field
     glVertex3d(width, 0, height);
