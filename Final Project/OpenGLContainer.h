@@ -51,7 +51,7 @@ private:
 
 
 static const GLdouble CAMERA_ADJ = 5;
-static const GLdouble ANIMATION_PRAM = 5;
+static const GLdouble ANIMATION_PRAM = 100;
 
 static const double PI = 3.141593;
 
