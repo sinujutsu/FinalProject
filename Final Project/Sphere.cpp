@@ -13,8 +13,8 @@ void Sphere::printState(){
 }
 
 void Sphere::updateState(GLdouble dTime){
-    xPos += xVel * dTime;
-    yPos += yVel * dTime;
+    xPos += xVel * dTime/100;
+    yPos += yVel * dTime/100;
 }
 
 void Sphere::setMaterial(MaterialInfo mat){
@@ -31,7 +31,13 @@ void Sphere::bounceTopOrBottom(GLdouble correctPosition){
     yPos = correctPosition;
 }
 
-// Would love some comment code here. What is thisUX? Is thisVX x velocity? --Jake
+// U - velocity before
+// V - velocity after
+// X - x component of velocity vector
+// Y - y component of velocity vector
+// M - "mass" caluclated from volume of a sphere given the radius
+// http://en.wikipedia.org/wiki/Elastic_collision#One-dimensional_Newtonian
+//
 void Sphere::bounceSphere(Sphere* otherSphere){
     GLdouble thisVX, thisVY, thisUX, thisUY;
     GLdouble otherVX, otherVY, otherUX, otherUY;
@@ -91,7 +97,7 @@ Sphere::Sphere(GLdouble xPositionInit, GLdouble yPositionInit, GLdouble xVelocit
     shape = glGenLists(1);
     glNewList(shape,GL_COMPILE);
     setMaterial(material);
-    glutWireSphere(size, 4, 4);
+    glutWireSphere(size, 40, 40);
     glEndList();
     
 }
