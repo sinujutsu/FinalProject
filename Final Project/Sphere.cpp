@@ -34,10 +34,10 @@ void Sphere::bounceTopOrBottom(GLdouble correctPosition){
 // U - velocity before
 // V - velocity after
 // X - x component of velocity vector
-// Y - y component of velocity vector
+// Y - y component of velocity vector(actually z on screen, y used only for ease)
 // M - "mass" caluclated from volume of a sphere given the radius
 // http://en.wikipedia.org/wiki/Elastic_collision#One-dimensional_Newtonian
-//
+// Calculates new velocity for each component
 void Sphere::bounceSphere(Sphere* otherSphere){
     GLdouble thisVX, thisVY, thisUX, thisUY;
     GLdouble otherVX, otherVY, otherUX, otherUY;
