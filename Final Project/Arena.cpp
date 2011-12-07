@@ -88,11 +88,11 @@ void Arena::draw(){
 //adds spheres to be drawn
 Arena::Arena(){
     wallsOrBalls = true;
-    surface = new Rectangular(100,100,MAT_GRAY);
+    surface = new Rectangular(5,5,MAT_GRAY);
     xOffset = surface->getWidth()/2;
     yOffset = surface->getHeight()/2;
     
-    GLuint numBalls = 400;
+    GLuint numBalls = 0;
     GLdouble ballPD = 0;
     GLdouble dBallPD = .5;
     for (GLuint i = 0; i<numBalls; i++) {
