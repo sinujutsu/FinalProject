@@ -13,3 +13,7 @@ Advanced
 Extra
 -Music
 -Dem Trippy Visuals
+-Friction across all moving objects
+
+Player mesh: to tie it to the PlayerObject class, take the mesh and "do it" in a display list, and put a display list field in the class.
+This way, it should be initialized in the display list, and thus easily editable from the class.
