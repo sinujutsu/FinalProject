@@ -29,46 +29,46 @@ Rectangular::Rectangular(GLdouble height, GLdouble width, MaterialInfo fieldMate
     glVertex3d(-width, 0, -height);
     glVertex3d(width, 0, -height);
     //corner squares
-    glVertex3d(height+thick, 0, width+thick);
-    glVertex3d(height, 0, width+thick);
-    glVertex3d(height, 0, width);
-    glVertex3d(height+thick, 0, width);
+    glVertex3d(height+thick, thick, width+thick);
+    glVertex3d(height, thick, width+thick);
+    glVertex3d(height, thick, width);
+    glVertex3d(height+thick, thick, width);
     
-    glVertex3d(-height, 0, width);
-    glVertex3d(-height, 0, width+thick);
-    glVertex3d(-height-thick, 0, width+thick);
-    glVertex3d(-height-thick, 0, width);
+    glVertex3d(-height, thick, width);
+    glVertex3d(-height, thick, width+thick);
+    glVertex3d(-height-thick, thick, width+thick);
+    glVertex3d(-height-thick, thick, width);
     
-    glVertex3d(height+thick, 0, -width-thick);
-    glVertex3d(height+thick, 0, -width);
-    glVertex3d(height, 0, -width);
-    glVertex3d(height, 0, -width-thick);
+    glVertex3d(height+thick, thick, -width-thick);
+    glVertex3d(height+thick, thick, -width);
+    glVertex3d(height, thick, -width);
+    glVertex3d(height, thick, -width-thick);
     
-    glVertex3d(-height, 0, -width-thick);
-    glVertex3d(-height, 0, -width);
-    glVertex3d(-height-thick, 0, -width);
-    glVertex3d(-height-thick, 0, -width-thick);
+    glVertex3d(-height, thick, -width-thick);
+    glVertex3d(-height, thick, -width);
+    glVertex3d(-height-thick, thick, -width);
+    glVertex3d(-height-thick, thick, -width-thick);
     
     //side longs
-    glVertex3d(height+thick, 0, -width);
-    glVertex3d(height+thick, 0, width);
-    glVertex3d(height, 0, width);
-    glVertex3d(height, 0, -width);
+    glVertex3d(height+thick, thick, -width);
+    glVertex3d(height+thick, thick, width);
+    glVertex3d(height, thick, width);
+    glVertex3d(height, thick, -width);
     
-    glVertex3d(height, 0, width);
-    glVertex3d(height, 0, width+thick);
-    glVertex3d(-height, 0, width+thick);
-    glVertex3d(-height, 0, width);
+    glVertex3d(height, thick, width);
+    glVertex3d(height, thick, width+thick);
+    glVertex3d(-height, thick, width+thick);
+    glVertex3d(-height, thick, width);
     
-    glVertex3d(-height, 0, -width);
-    glVertex3d(-height, 0, width);
-    glVertex3d(-height-thick, 0, width);
-    glVertex3d(-height-thick, 0, -width);
+    glVertex3d(-height, thick, -width);
+    glVertex3d(-height, thick, width);
+    glVertex3d(-height-thick, thick, width);
+    glVertex3d(-height-thick, thick, -width);
     
-    glVertex3d(height, 0, -width-thick);
-    glVertex3d(height, 0, -width);
-    glVertex3d(-height, 0, -width);
-    glVertex3d(-height, 0, -width-thick);
+    glVertex3d(height, thick, -width-thick);
+    glVertex3d(height, thick, -width);
+    glVertex3d(-height, thick, -width);
+    glVertex3d(-height, thick, -width-thick);
     //vert side walls  outside
     glVertex3d(-width-thick, 0, -height-thick);
     glVertex3d(-width-thick, thick, -height-thick);
