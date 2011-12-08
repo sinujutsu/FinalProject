@@ -5,6 +5,7 @@
 #include "cs315.h"
 #include "OpenGLContainer.h"
 #include "Arena.h"
+#include "Player.h"
 
 #include <math.h>
 #include <iostream>
@@ -28,7 +29,9 @@ OpenGLContainer::OpenGLContainer(){
 //does nothing
 OpenGLContainer::~OpenGLContainer(){}
 
-void OpenGLContainer::initalizeOpenGLContainer(){}
+void OpenGLContainer::initalizeOpenGLContainer(){
+   // Player* thePlayer = new Player(0,0,2,0,0);
+}
 
 //
 //calls draw method of the arena

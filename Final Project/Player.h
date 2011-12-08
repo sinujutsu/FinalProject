@@ -12,22 +12,26 @@
 #include "MaterialInfo.h"
 #include "Sphere.h"
 
-class Player : public Sphere{
+class Player : public Sphere {
 public:
     void updateVelocity(GLdouble xVelocity, GLdouble yVelocity);
+    void shoot(GLdouble angle);
+
     
     
     
-    
+    Player(GLdouble xPosition, GLdouble yPosition, GLdouble radius, GLdouble xVelocity, GLdouble yVelocity);
 private:
+    void updateAngle();
     GLdouble xVel;
     GLdouble yVel;
+    GLdouble
     
     
     
     
     
-}
+};
 
 
 #endif

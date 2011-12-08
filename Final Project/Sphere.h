@@ -25,22 +25,23 @@ protected:
     MaterialInfo material;
 public:
     void printState();
-    void updateState(GLdouble dTime);
-    void setMaterial(MaterialInfo mat); 
-    void bounceTopOrBottom();
-    void bounceSide();
-    void bounceSphere(Sphere* otherSphere);
-    GLboolean checkCollision(Sphere* otherSphere);
+    virtual void updateState(GLdouble dTime);
+    virtual void setMaterial(MaterialInfo mat); 
+    virtual void bounceTopOrBottom();
+    virtual void bounceSide();
+    virtual void bounceSphere(Sphere* otherSphere);
+    virtual GLboolean checkCollision(Sphere* otherSphere);
     
-    GLdouble getSize();
-    GLdouble getXPosition();
-    GLdouble getYPosition();
-    GLuint getDisplayList();
-    MaterialInfo getMaterial();
+    virtual GLdouble getSize();
+    virtual GLdouble getXPosition();
+    virtual GLdouble getYPosition();
+    virtual GLuint getDisplayList();
+    virtual MaterialInfo getMaterial();
     
     Sphere(GLdouble xPositionInit, GLdouble yPositionInit, GLdouble xVelocity, GLdouble yVelocity, GLdouble radius, MaterialInfo mat);
     virtual ~Sphere();
 };
-#endif
 static const GLdouble VOLUME_FACTOR = (4.00/3.00) * 3.141593;
+#endif
+
 

@@ -24,9 +24,7 @@ void Sphere::setMaterial(MaterialInfo mat){
 void Sphere::bounceSide(){
 
     xVel = -xVel;
-    
 
-    
 }
 
 void Sphere::bounceTopOrBottom(){
