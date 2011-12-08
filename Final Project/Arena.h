@@ -35,8 +35,7 @@ public:
 
     
     void addRigidBody(Sphere body);
-    
-    Arena();
+    Arena(Player* thePlayer);
     virtual ~Arena();
 };
 

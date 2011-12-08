@@ -112,10 +112,13 @@ void Arena::playerShoot(GLdouble angle){
     }
 }
 
+
+
 //constructor
 //makes a new surface to play on
 //adds spheres to be drawn
-Arena::Arena(){
+Arena::Arena(Player* thePlayer){
+    player = thePlayer;
     wallsOrBalls = true;
     surface = new Rectangular(100,100,MAT_GRAY);
     xOffset = surface->getWidth()/2;
@@ -128,7 +131,9 @@ Arena::Arena(){
         spheres.push_back(new Sphere(ballPD,ballPD,5,10,1,MAT_BLUE));
         ballPD += dBallPD;
     }
-    spheres.push_back(new Player(-20,-20,-11,-10,3,MAT_GREEN));
+    spheres.push_back(player);
+    
+    
     
 }
 

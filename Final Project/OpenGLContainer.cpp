@@ -16,7 +16,7 @@ using namespace std;
 //Constructor
 //Makes a new arena, sets initial view
 OpenGLContainer::OpenGLContainer(){
-    theArena = new Arena();
+    theArena = new Arena(new Player(0,0,21,11.6,4,MAT_RED));
     pitch = 50;
     yaw = 0;
     zoom = 20;
@@ -30,8 +30,8 @@ OpenGLContainer::OpenGLContainer(){
 OpenGLContainer::~OpenGLContainer(){}
 
 void OpenGLContainer::initalizeOpenGLContainer(){
-   // Player* thePlayer = new Player(0,0,2,0,0);
-    //
+   //Player* thePlayer = new Player(0,0,13,10,4,MAT_RED);
+
 }
 
 //
@@ -98,6 +98,9 @@ void OpenGLContainer::keyDown(unsigned char key, int x, int y){
         case 'l':
             centX += CAMERA_ADJ/2;
             break;
+            
+            case 't':
+            theArena->playerShoot(45);
         default:
             break;
     }
