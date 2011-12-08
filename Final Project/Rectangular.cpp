@@ -160,8 +160,8 @@ Rectangular::Rectangular(GLdouble height, GLdouble width, MaterialInfo fieldMate
 void Rectangular::drawBackground(){
 	glNewList(background, GL_COMPILE);
 	glEnable(GL_TEXTURE_2D);
-	//glDisable(GL_CULL_FACE);
-	//glDisable(GL_LIGHTING);
+	glDisable(GL_CULL_FACE);
+	glDisable(GL_LIGHTING);
 	glPushMatrix();
 	glBindTexture(GL_TEXTURE_2D, texTop);
 	glBegin(GL_QUADS);
@@ -238,12 +238,9 @@ void Rectangular::drawBackground(){
 	glPopMatrix();
 	glDisable(GL_TEXTURE_2D);
 
-	//glEnable(GL_CULL_FACE);
-	//glEnable(GL_LIGHTING);
+	glEnable(GL_CULL_FACE);
+	glEnable(GL_LIGHTING);
 	glEndList();
-}
-GLuint Rectangular::getDisplayList(){
-	return background;
 }
 
 Rectangular::~Rectangular(){
