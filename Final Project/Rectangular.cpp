@@ -13,7 +13,13 @@
 
 Rectangular::Rectangular(GLdouble height, GLdouble width, MaterialInfo fieldMaterial){
     h = height;
-    w = width;
+    w = width;//poop
+    
+    
+    
+    
+    
+    
     mat = fieldMaterial;
     GLdouble thick = 2;
     
