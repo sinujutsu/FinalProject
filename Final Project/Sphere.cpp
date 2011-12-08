@@ -3,6 +3,7 @@
 
 
 #include "Sphere.h"
+#include "OpenGLContainer.h"
 
 #include <iostream>
 
@@ -17,9 +18,6 @@ void Sphere::updateState(GLdouble dTime){
     yPos += yVel * dTime;
 }
 
-void Sphere::setMaterial(MaterialInfo mat){
-    material = mat;
-}
 
 void Sphere::bounceSide(){
 
@@ -30,9 +28,6 @@ void Sphere::bounceSide(){
 void Sphere::bounceTopOrBottom(){
 
     yVel = -yVel;
-
-
-    
 }
 
 // U - velocity before
@@ -92,9 +87,6 @@ GLdouble Sphere::getSize(){
     return size;
 }
 
-MaterialInfo Sphere::getMaterial(){
-    return material;
-}
 
 GLdouble Sphere::getXPosition(){
     return xPos;
@@ -105,6 +97,10 @@ GLdouble Sphere::getYPosition(){
 
 GLuint Sphere::getDisplayList(){
     return shape;
+}
+
+MaterialInfo Sphere::getMaterial(){
+    return material;
 }
 
 
@@ -118,7 +114,7 @@ Sphere::Sphere(GLdouble xPositionInit, GLdouble yPositionInit, GLdouble xVelocit
     
     shape = glGenLists(1);
     glNewList(shape,GL_COMPILE);
-    setMaterial(material);
+    instance->setMaterial(material);
     glutWireSphere(size, 4, 5);
     glEndList();
     

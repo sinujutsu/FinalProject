@@ -14,19 +14,24 @@
 
 class Player : public Sphere {
 public:
-    void updateVelocity(GLdouble xVelocity, GLdouble yVelocity);
     void shoot(GLdouble angle);
-
+    void die();
     
-    
+    GLboolean checkCollision(Sphere* otherSphere);
     
     Player(GLdouble xPosition, GLdouble yPosition, GLdouble radius, GLdouble xVelocity, GLdouble yVelocity);
 private:
     void updateAngle();
+    
     GLdouble xVel;
     GLdouble yVel;
-    GLdouble
+    GLdouble xPos;
+    GLdouble yPos;
+    GLdouble size;
     
+    GLuint shape;
+    
+    MaterialInfo material;
     
     
     

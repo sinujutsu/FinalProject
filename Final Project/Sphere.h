@@ -25,8 +25,8 @@ protected:
     MaterialInfo material;
 public:
     void printState();
-    virtual void updateState(GLdouble dTime);
-    virtual void setMaterial(MaterialInfo mat); 
+    virtual void die();
+    virtual void updateState(GLdouble dTime); 
     virtual void bounceTopOrBottom();
     virtual void bounceSide();
     virtual void bounceSphere(Sphere* otherSphere);
