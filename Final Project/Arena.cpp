@@ -113,7 +113,6 @@ void Arena::playerShoot(GLdouble angle){
 }
 
 
-
 //constructor
 //makes a new surface to play on
 //adds spheres to be drawn
