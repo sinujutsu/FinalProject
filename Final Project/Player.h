@@ -6,18 +6,21 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#ifndef XcodeCloneAttempt_Player_h
-#define XcodeCloneAttempt_Player_h
+#ifndef XcodeCloneAttempt_Player_test_h
+#define XcodeCloneAttempt_Player_test_h
+
 #include "cs315.h"
 #include "MaterialInfo.h"
 #include "Sphere.h"
 #include "mesh.h"
+#include "OpenGLContainer.h"
 
 class Player : public Sphere {
 
 public:
     GLboolean checkCollision(Sphere* otherSphere);
     Player(GLdouble xPositionInit, GLdouble yPositionInit, GLdouble xVelocity, GLdouble yVelocity, GLdouble radius, MaterialInfo mat);
+	GLuint getMeshDL();
 	void loadPlayerMesh(const char *filename);
 	void drawPlayerMesh();
 	void setXVelocity(GLdouble xV);
@@ -27,22 +30,8 @@ private:
     void updateAngle();	
 
     GLuint health;
-    
-    GLdouble xVel;
-    GLdouble yVel;
-    GLdouble xPos;
-    GLdouble yPos;
-    GLdouble size;
-    
-    
-    GLuint shape;
-    
-    MaterialInfo material;
+    GLuint meshDL;
 	Mesh m;
-    
-    
-    
-    
 };
 
 

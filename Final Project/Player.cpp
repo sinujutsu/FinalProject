@@ -128,13 +128,20 @@ GLboolean Player::checkCollision(Sphere* otherSphere){
     return hit;
 }
 
+GLuint Player::getMeshDL()
+{
+	return meshDL;
+}
+
 Player::Player(GLdouble xPositionInit, GLdouble yPositionInit, GLdouble xVelocity, GLdouble yVelocity, GLdouble radius, MaterialInfo mat): Sphere(xPositionInit,  yPositionInit,  xVelocity,  yVelocity,  radius,  mat)
 {
     health = 5;
-    shape = glGenLists(1);
-    glNewList(shape,GL_COMPILE);
-		instance->setMaterial(material);
-		glutWireSphere(size, 4, 5);
-		drawPlayerMesh();
+    meshDL = glGenLists(1);
+
+    glNewList(meshDL, GL_COMPILE);
+		glPushMatrix();
+			glScalef(10, 10, 10);
+			drawPlayerMesh();
+		glPopMatrix();
     glEndList();
 }

@@ -130,9 +130,15 @@ void Arena::draw(){
     
     //draw player
     glPushMatrix();
-    instance->setMaterial(player->getMaterial());
-    glTranslated(player->getXPosition(), 1, player->getYPosition());
-    glCallList(player->getDisplayList());
+		instance->setMaterial(player->getMaterial());
+		glTranslated(player->getXPosition(), 1, player->getYPosition());
+	    glCallList(player->getDisplayList());
+		//Maybe, uh, perhaps get this to fucking work cause this is bullshit?
+		//glCallList(player->getMeshDL());
+		glPushMatrix();
+		  glScalef(10, 10, 10);
+		  player->drawPlayerMesh();
+		glPopMatrix();
     glPopMatrix();
     
     //draw bullets
@@ -187,10 +193,6 @@ Arena::Arena(Player* thePlayer){
         spheres.push_back(new Sphere(ballPD,ballPD,5,10,1,MAT_BLUE));
         ballPD += dBallPD;
     }
-    
-    
-    
-    
 }
 
 //nothing
