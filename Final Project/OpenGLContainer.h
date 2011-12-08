@@ -53,7 +53,8 @@ private:
 static const GLdouble CAMERA_ADJ = 5;
 static const GLdouble ANIMATION_PRAM = 1;
 
-static const double PI = 3.141593;
+static const GLdouble PI = 3.141593;
+static const GLdouble MULT_RAD_TO_DEG = 180/PI;
 
 static OpenGLContainer *instance = NULL;
 #endif

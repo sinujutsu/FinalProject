@@ -11,6 +11,7 @@
 #include "Sphere.h"
 #include "Surface.h"
 #include "Rectangular.h"
+#include "Player.h"
 
 #include <vector>
 
@@ -19,6 +20,8 @@ class Arena{
 private:
     Rectangular* surface;
     vector<Sphere*> spheres;
+    vector<Sphere*> bullets;
+    Player* player;
     GLdouble xOffset;
     GLdouble yOffset;
     GLboolean wallsOrBalls;

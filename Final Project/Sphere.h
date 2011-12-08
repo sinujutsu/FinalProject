@@ -25,7 +25,7 @@ protected:
     MaterialInfo material;
 public:
     void printState();
-    virtual void die();
+    virtual void die(GLboolean showDeath);
     virtual void updateState(GLdouble dTime); 
     virtual void bounceTopOrBottom();
     virtual void bounceSide();

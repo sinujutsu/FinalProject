@@ -13,8 +13,11 @@ void Sphere::printState(){
     cout << "Position (" << xPos << ","<< yPos << ")   Velcoity (" << xVel << "," << yVel << ")"<<endl;
 }
 
-void Sphere::die(){
-    
+void Sphere::die(GLboolean showDeath){
+    if (showDeath) {
+        //death animation
+    }
+    //delete this;
 }
 
 void Sphere::updateState(GLdouble dTime){

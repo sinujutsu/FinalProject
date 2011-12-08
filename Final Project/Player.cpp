@@ -18,7 +18,7 @@ GLboolean Player::checkCollision(Sphere* otherSphere){
         health -= 1;
     }
     if (health <=0) {
-        this->die();
+        this->die(true);
     }
     return hit;
 }

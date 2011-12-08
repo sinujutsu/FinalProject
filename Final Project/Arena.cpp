@@ -92,7 +92,24 @@ void Arena::draw(){
 }
 
 void Arena::playerShoot(GLdouble angle){ 
+    GLdouble maxBullets = 20;
+    GLdouble bXPos, bYPos, bXVel, bYVel;
+    GLdouble bulletSpeed = 20;
     
+    bXPos = player->getXPosition()+ player->getSize() *cos(angle);
+    bYPos = player->getYPosition()+ player->getSize() *sin(angle);
+    
+    bYVel = bulletSpeed*cos(angle);
+    bXVel = bulletSpeed*sin(angle);
+    
+    
+    
+    bullets.push_back(new Sphere(bXPos,bYPos,bXVel,bYVel,.5,MAT_RED));
+    if (bullets.size() > maxBullets) {
+        for (GLuint i = bullets.size()-maxBullets; i>0; i--) {
+            bullets[i]->die(false);
+        }
+    }
 }
 
 //constructor
