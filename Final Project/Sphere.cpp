@@ -22,7 +22,7 @@ void Sphere::setMaterial(MaterialInfo mat){
 }
 
 void Sphere::bounceSide(){
-    //xPos -= xVel*UNSTICK_TIME;
+
     xVel = -xVel;
     
 
@@ -30,7 +30,7 @@ void Sphere::bounceSide(){
 }
 
 void Sphere::bounceTopOrBottom(){
-    //yPos -= yVel*UNSTICK_TIME;
+
     yVel = -yVel;
 
 
@@ -72,10 +72,7 @@ void Sphere::bounceSphere(Sphere* otherSphere){
     otherSphere->xVel = otherVX;
     otherSphere->yVel = otherVY;
     
-//    this->xPos += thisUX * UNSTICK_TIME;
-//    this->yPos += thisUY * UNSTICK_TIME;
-//    otherSphere->xPos += otherUX * UNSTICK_TIME;
-//    otherSphere->yPos += otherUY * UNSTICK_TIME;
+
 ;
     
 }
@@ -95,6 +92,21 @@ GLboolean Sphere::checkCollision(Sphere* otherSphere){
 
 GLdouble Sphere::getSize(){
     return size;
+}
+
+MaterialInfo Sphere::getMaterial(){
+    return material;
+}
+
+GLdouble Sphere::getXPosition(){
+    return xPos;
+}
+GLdouble Sphere::getYPosition(){
+    return yPos;
+}
+
+GLuint Sphere::getDisplayList(){
+    return shape;
 }
 
 

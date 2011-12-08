@@ -5,7 +5,7 @@
 #ifndef Final_Project_Arena_h
 #define Final_Project_Arena_h
 
-#include "RigidBody.h"
+
 #include "cs315.h"
 #include "MaterialInfo.h"
 #include "Sphere.h"
@@ -29,7 +29,7 @@ public:
     
 
     
-    void addRigidBody(RigidBody body);
+    void addRigidBody(Sphere body);
     
     Arena();
     virtual ~Arena();

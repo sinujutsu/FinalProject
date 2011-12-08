@@ -9,7 +9,6 @@
 #include "Arena.h"
 #include "OpenGLContainer.h"
 #include "Rectangular.h"
-#include "RigidBody.h"
 #include "cs315.h"
 
 #include <vector>
@@ -29,10 +28,9 @@ void Arena::update(GLdouble dTime){
     
     for (GLuint i = 0; i<rigidBodies.size(); i++) {
         Sphere* currentBody = rigidBodies[i];
-        RigidBody* rigid = currentBody;
         
-        x = rigid->getXPosition();
-        y = rigid->getYPosition();
+        x = currentBody->getXPosition();
+        y = currentBody->getYPosition();
         r = currentBody->getSize();
         
         if(wallsOrBalls){
@@ -80,7 +78,7 @@ void Arena::update(GLdouble dTime){
 //draws all objects, with their current position
 void Arena::draw(){
     for (GLuint i = 0; i<rigidBodies.size(); i++) {
-        RigidBody* currentBody = rigidBodies[i];
+        Sphere* currentBody = rigidBodies[i];
         glPushMatrix();
         instance->setMaterial(currentBody->getMaterial());
         glTranslated(currentBody->getXPosition(), 1, currentBody->getYPosition());
