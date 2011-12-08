@@ -68,16 +68,40 @@ void OpenGLContainer::keyDown(unsigned char key, int x, int y){
             cur_time = CS315::getTime();
             animate = !animate;
             break;
-        case 'w':
+		case 'w':
+			//thePlayer.yVel += 5
+			//if(thePlayer.yVel > 15){
+			//thePlayer.yVel == 15;
+			//}
+			break;
+		case 'a':
+			//thePlayer.xVel -= 5
+			//if(thePlayer.xVel < -15){
+			//thePlayer.xVel == -15;
+			//}
+			break;
+		case 's':
+			//thePlayer.yVel -= 5
+			//if(thePlayer.yVel < -15){
+			//thePlayer.yVel == -15;
+			//}
+			break;
+		case 'd':
+			//thePlayer.xVel += 5
+			//if(thePlayer.xVel > 15){
+			//thePlayer.xVel == 15;
+			//}
+			break;
+        case 'z':
             pitch -= CAMERA_ADJ;
             break;
-        case 's':
+        case 'x':
             pitch += CAMERA_ADJ;
             break;
-        case 'a':
+        case 'c':
             yaw -= CAMERA_ADJ;
             break;
-        case 'd':
+        case 'v':
             yaw += CAMERA_ADJ;
             break;
         case 'q':
@@ -98,9 +122,6 @@ void OpenGLContainer::keyDown(unsigned char key, int x, int y){
         case 'l':
             centX += CAMERA_ADJ/2;
             break;
-            
-            case 't':
-            theArena->playerShoot(45);
         default:
             break;
     }
@@ -131,6 +152,19 @@ void OpenGLContainer::idle(){
         elapsed = (cur_time - last_time) * ANIMATION_PRAM;
         last_time = cur_time;
         theArena->update(elapsed);
+		//cout<< elapsed << endl;
+		//if(thePlayer.xVel > 0){
+		//thePlayer.xVel -= 1;
+		//}
+		//if(thePlayer.xVel < 0){
+		//thePlayer.xVel += 1;
+		//}
+		//if(thePlayer.yVel > 0){
+		//thePlayer.xVel -= 1;
+		//}
+		//if(thePlayer.yVel < 0){
+		//thePlayer.xVel += 1;
+		//}
         //cout<< elapsed << endl;
         glutPostRedisplay();
     }
