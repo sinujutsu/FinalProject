@@ -122,6 +122,9 @@ void OpenGLContainer::keyDown(unsigned char key, int x, int y){
         case 'l':
             centX += CAMERA_ADJ/2;
             break;
+		case 't':
+			theArena->playerShoot(45);
+			break;
         default:
             break;
     }
