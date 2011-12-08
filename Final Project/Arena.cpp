@@ -169,8 +169,8 @@ void Arena::playerShoot(GLdouble angle){
     bXPos = player->getXPosition();
     bYPos = player->getYPosition();
     
-    bYVel = bulletSpeed*cos(angle)+player->getXV()+100;
-    bXVel = bulletSpeed*sin(angle)+player->getYV()+100;
+    bYVel = bulletSpeed*cos(angle)+player->getXVelocity()+100;
+    bXVel = bulletSpeed*sin(angle)+player->getYVelocity()+100;
     
     
     

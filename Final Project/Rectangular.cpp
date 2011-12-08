@@ -26,20 +26,20 @@ Rectangular::Rectangular(GLdouble height, GLdouble width, MaterialInfo fieldMate
     
     
     glGenTextures(1, &texTop);
-	printf("Texture load result: %i\n", Tga::loadTGA("FinalProject\\Final Project\\Textures\\tronbluefixed.tga", texTop, 1));
+	printf("Texture load result: %i\n", Tga::loadTGA("Textures\\tronbluefixed.tga", texTop, 1));
 	glGenTextures(1, &texBack);
-	printf("Texture load result: %i\n", Tga::loadTGA("FinalProject\\Final Project\\Textures\\tronbluefixed.tga", texBack, 1));
+	printf("Texture load result: %i\n", Tga::loadTGA("Textures\\tronbluefixed.tga", texBack, 1));
 	glGenTextures(1, &texLeft);
-	printf("Texture load result: %i\n", Tga::loadTGA("FinalProject\\Final Project\\Textures\\tronbluefixed.tga", texLeft, 1));
+	printf("Texture load result: %i\n", Tga::loadTGA("Textures\\tronbluefixed.tga", texLeft, 1));
 	glGenTextures(1, &texRight);
-	printf("Texture load result: %i\n", Tga::loadTGA("FinalProject\\Final Project\\Textures\\tronbluefixed.tga", texRight, 1));
+	printf("Texture load result: %i\n", Tga::loadTGA("Textures\\tronbluefixed.tga", texRight, 1));
 	glGenTextures(1, &texFront);
-	printf("Texture load result: %i\n", Tga::loadTGA("FinalProject\\Final Project\\Textures\\tronbluefixed.tga", texFront, 1));
+	printf("Texture load result: %i\n", Tga::loadTGA("Textures\\tronbluefixed.tga", texFront, 1));
 	glGenTextures(1, &texBottom);
-	printf("Texture load result: %i\n", Tga::loadTGA("FinalProject\\Final Project\\Textures\\tronbluefixed.tga", texBottom, 1));
+	printf("Texture load result: %i\n", Tga::loadTGA("Textures\\tronbluefixed.tga", texBottom, 1));
 
 	glGenTextures(1, &texArena);
-	printf("Texture load result; %i\n", Tga::loadTGA("FinalProject\\Final Project\\Textures\\tronorangefixed.tga", texArena, 1));
+	printf("Texture load result; %i\n", Tga::loadTGA("Textures\\tronorangefixed.tga", texArena, 1));
 
 	back = glGenLists(1);
 	drawBackground();
