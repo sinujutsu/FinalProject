@@ -158,6 +158,7 @@ void Arena::draw(){
     
     instance->setMaterial(surface->getMat());
     glCallList(surface->getDisplayList());
+	glCallList(surface->getDisplayList2());
 }
 
 void Arena::playerShoot(GLdouble angle){ 

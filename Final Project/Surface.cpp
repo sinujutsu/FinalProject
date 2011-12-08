@@ -17,4 +17,7 @@ Surface::~Surface(){
 GLuint Surface::getDisplayList(){
     return fieldd;
 }
+GLuint Surface::getDisplayList2(){
+	return back;
+}
 

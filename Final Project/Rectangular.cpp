@@ -41,7 +41,7 @@ Rectangular::Rectangular(GLdouble height, GLdouble width, MaterialInfo fieldMate
 	glGenTextures(1, &texArena);
 	printf("Texture load result; %i\n", Tga::loadTGA("FinalProject\\Final Project\\Textures\\tronorangefixed.tga", texArena, 1));
 
-	background = glGenLists(1);
+	back = glGenLists(1);
 	drawBackground();
     
     arena = glGenLists(1);
@@ -152,16 +152,96 @@ Rectangular::Rectangular(GLdouble height, GLdouble width, MaterialInfo fieldMate
     glVertex3d(-width, 0, -width);
     glVertex3d(-width, 0, height);
     
-    
     glEnd();
+
+	glEnable(GL_TEXTURE_2D);
+	//glDisable(GL_CULL_FACE);
+	//glDisable(GL_LIGHTING);
+	glPushMatrix();
+	glBindTexture(GL_TEXTURE_2D, texTop);
+	glBegin(GL_QUADS);
+		glTexCoord2d(0,0); glVertex3f(200.0,200.0,-200.0);
+		glTexCoord2d(1,0); glVertex3f(-200.0,200.0,-200.0);
+		glTexCoord2d(1,1); glVertex3f(-200.0,200.0,200.0);
+		glTexCoord2d(0,1); glVertex3f(200.0,200.0,200.0);
+	glEnd();
+	glPopMatrix();
+	glDisable(GL_TEXTURE_2D);
+
+	glEnable(GL_TEXTURE_2D);
+	glPushMatrix();
+	glBindTexture(GL_TEXTURE_2D, texBack);
+	glBegin(GL_QUADS);
+		/*glTexCoord2d(0,0); glVertex3f(200.0,-200.0,-200.0);
+		glTexCoord2d(200,0); glVertex3f(-200.0,-200.0,-200.0);
+		glTexCoord2d(200,200); glVertex3f(-200.0,200.0,-200.0);
+		glTexCoord2d(0,200); glVertex3f(200.0,200.0,-200.0);
+		*/
+		glTexCoord2d(0,0); glVertex3f(200.0,-200.0,-200.0);
+		glTexCoord2d(1.0,0); glVertex3f(-200.0,-200.0,-200.0);
+		glTexCoord2d(1.0,1.0); glVertex3f(-200.0,200.0,-200.0);
+		glTexCoord2d(0,1.0); glVertex3f(200.0,200.0,-200.0);
+	glEnd();
+	glPopMatrix();
+	glDisable(GL_TEXTURE_2D);
+
+	glEnable(GL_TEXTURE_2D);
+	glPushMatrix();
+	glBindTexture(GL_TEXTURE_2D, texLeft);
+	glBegin(GL_QUADS);
+		glTexCoord2d(0,0); glVertex3f(-200.0,-200.0,-200.0);
+		glTexCoord2d(1,0); glVertex3f(-200.0,-200.0,200.0);
+		glTexCoord2d(1,1); glVertex3f(-200.0,200.0,200.0);
+		glTexCoord2d(0,1); glVertex3f(-200.0,200.0,-200.0);
+	glEnd();
+	glPopMatrix();
+	glDisable(GL_TEXTURE_2D);
+
+	glEnable(GL_TEXTURE_2D);
+	glPushMatrix();
+	glBindTexture(GL_TEXTURE_2D, texRight);
+	glBegin(GL_QUADS);
+		glTexCoord2d(0,0); glVertex3f(200.0,-200.0,200.0);
+		glTexCoord2d(1,0); glVertex3f(200.0,-200.0,-200.0);
+		glTexCoord2d(1,1); glVertex3f(200.0,200.0,-200.0);
+		glTexCoord2d(0,1); glVertex3f(200.0,200.0,200.0);
+	glEnd();
+	glPopMatrix();
+	glDisable(GL_TEXTURE_2D);
+
+	glEnable(GL_TEXTURE_2D);
+	glPushMatrix();
+	glBindTexture(GL_TEXTURE_2D, texFront);
+	glBegin(GL_QUADS);
+		glTexCoord2d(0,0); glVertex3f(-200.0,-200.0,200.0);
+		glTexCoord2d(1,0); glVertex3f(200.0,-200.0,200.0);
+		glTexCoord2d(1,1); glVertex3f(200.0,200.0,200.0);
+		glTexCoord2d(0,1); glVertex3f(-200.0,200.0,200.0);
+	glEnd();
+	glPopMatrix();
+	glDisable(GL_TEXTURE_2D);
+
+	glEnable(GL_TEXTURE_2D);
+	glPushMatrix();
+	glBindTexture(GL_TEXTURE_2D, texBottom);
+	glBegin(GL_QUADS);
+		glTexCoord2d(0,0); glVertex3f(200.0,-200.0, 200.0);
+		glTexCoord2d(1,0); glVertex3f(-200.0,-200.0,200.0);
+		glTexCoord2d(1,1); glVertex3f(-200.0,-200.0,-200.0);
+		glTexCoord2d(0,1); glVertex3f(200.0,-200.0,-200.0);
+	glEnd();
+	glPopMatrix();
+	glDisable(GL_TEXTURE_2D);
+
+	//glEnable(GL_CULL_FACE);
     glEndList();
 }
 
 void Rectangular::drawBackground(){
-	glNewList(background, GL_COMPILE);
+	glNewList(back, GL_COMPILE);
 	glEnable(GL_TEXTURE_2D);
 	glDisable(GL_CULL_FACE);
-	glDisable(GL_LIGHTING);
+	//glDisable(GL_LIGHTING);
 	glPushMatrix();
 	glBindTexture(GL_TEXTURE_2D, texTop);
 	glBegin(GL_QUADS);
@@ -239,7 +319,7 @@ void Rectangular::drawBackground(){
 	glDisable(GL_TEXTURE_2D);
 
 	glEnable(GL_CULL_FACE);
-	glEnable(GL_LIGHTING);
+	//glEnable(GL_LIGHTING);
 	glEndList();
 }
 
