@@ -65,22 +65,35 @@ void Arena::update(GLdouble dTime){
     
     //bullets
     //check all bullets against all spheres
-    for (GLuint i = 0; i<bullets.size(); i++) {
-        Sphere* currentBullet = bullets[i];
-        doWalls(currentBullet, dTime);
-        for (GLuint n = 0; n<spheres.size(); n++) {
-            if (currentBullet->checkCollision(spheres[n])) {
-                currentBullet->die(true);
-                spheres[n]->die(true);
-//                currentBullet->updateState(backInTime);
-//                spheres[n]->updateState(backInTime);
-//                currentBullet->bounceSphere(spheres[n]);
-                
+    
+    
+    
+    for (int i = 0; i<bullets.size(); i++) {
+        doWalls(bullets[i], dTime);
+        for (int n = 0; n<spheres.size(); n++) {
+            if (bullets[i]->checkCollision(spheres[n])) {
+                bullets[i]->toDelete = true;
+                spheres[n]->toDelete = true;
             }
         }
-        currentBullet->updateState(dTime);
+        bullets[i]->updateState(dTime);
     }
     
+    
+    
+//    for (vector<Sphere*>::iterator bulIt = bullets.begin(); bulIt != bullets.end(); ++bulIt) {
+//        if ((*bulIt)->toDelete == true) {
+//            //delete (*bulIt);
+//            bulIt = bullets.erase(bulIt);
+//        }
+//    }
+//    for (vector<Sphere*>::iterator sphIt = spheres.begin(); sphIt != spheres.end(); ++sphIt) {
+//        if ((*sphIt)->toDelete == true) {
+//            //delete (*sphIt);
+//            sphIt = spheres.erase(sphIt);
+//        }
+//        
+//    }
     
     
     
@@ -169,8 +182,8 @@ void Arena::playerShoot(GLdouble angle){
     bXPos = player->getXPosition();
     bYPos = player->getYPosition();
     
-    bYVel = bulletSpeed*cos(angle)+player->getXVelocity()+100;
-    bXVel = bulletSpeed*sin(angle)+player->getYVelocity()+100;
+    bYVel = bulletSpeed*cos(angle)*(PI/180)+player->getXVelocity()+100;
+    bXVel = bulletSpeed*sin(angle)*(PI/180)+player->getYVelocity()+100;
     
     
     

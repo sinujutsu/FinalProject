@@ -105,20 +105,29 @@ void OpenGLContainer::keyDown(unsigned char key, int x, int y){
         case 'e':
             zoom -= CAMERA_ADJ/4;
             break;
-        case 'i':
-            centZ -= CAMERA_ADJ/2;
-            break;
-        case 'k':
-            centZ += CAMERA_ADJ/2;
-            break;
-        case 'j':
-            centX -= CAMERA_ADJ/2;
-            break;
-        case 'l':
-            centX += CAMERA_ADJ/2;
-            break;
-		case 't':
-			theArena->playerShoot(45);
+        //case 'i':
+        //    centZ -= CAMERA_ADJ/2;
+        //    break;
+        //case 'k':
+        //    centZ += CAMERA_ADJ/2;
+        //    break;
+        //case 'j':
+        //    centX -= CAMERA_ADJ/2;
+        //    break;
+        //case 'l':
+        //    centX += CAMERA_ADJ/2;
+        //    break;
+		case 'i':
+			theArena->playerShoot(0);
+			break;
+		case 'j':
+			theArena->playerShoot(PI/2);
+			break;
+		case 'k':
+			theArena->playerShoot(PI);
+			break;
+		case 'l':
+			theArena->playerShoot((3*PI)/2);
 			break;
         default:
             break;
@@ -155,7 +164,6 @@ void OpenGLContainer::idle(){
 		if(thePlayer->getXVelocity() < 0){ thePlayer->setXVelocity( thePlayer->getXVelocity() + frictionConst); }
 		if(thePlayer->getYVelocity() > 0){ thePlayer->setYVelocity( thePlayer->getYVelocity() - frictionConst); }
 		if(thePlayer->getYVelocity() < 0){ thePlayer->setYVelocity( thePlayer->getYVelocity() + frictionConst); }
-        cout<< elapsed << endl;
         glutPostRedisplay();
     }
 }
