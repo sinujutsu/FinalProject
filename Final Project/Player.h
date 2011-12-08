@@ -11,15 +11,18 @@
 #include "cs315.h"
 #include "MaterialInfo.h"
 #include "Sphere.h"
+#include "mesh.h"
 
 class Player : public Sphere {
 public:
     
     GLboolean checkCollision(Sphere* otherSphere);
-    
     Player(GLdouble xPositionInit, GLdouble yPositionInit, GLdouble xVelocity, GLdouble yVelocity, GLdouble radius, MaterialInfo mat);
+
 private:
-    void updateAngle();
+    void updateAngle();	
+	void loadPlayerMesh(const char *filename);
+	void drawPlayerMesh();
     
     GLuint health;
     
@@ -33,6 +36,7 @@ private:
     GLuint shape;
     
     MaterialInfo material;
+	Mesh m;
     
     
     

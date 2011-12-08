@@ -12,6 +12,7 @@
 #include "Surface.h"
 #include "Rectangular.h"
 #include "Player.h"
+#include "mesh.h"
 
 #include <vector>
 
@@ -31,7 +32,6 @@ public:
     void draw();
     
     void playerShoot(GLdouble angle);
-    
 
     
     void addRigidBody(Sphere body);
