@@ -211,7 +211,7 @@ int main(int argc, char** argv) {
     glutInitDisplayMode(GLUT_RGB | GLUT_DEPTH | GLUT_DOUBLE);
     glutInitWindowSize(640,480);
     glutInitWindowPosition(100,150);
-    glutCreateWindow("Rigid Body Test");
+    glutCreateWindow("Legendary Tron Textured Sphere Chaos");
     glutIdleFunc(idleCallback);
     glutDisplayFunc(redrawCallback);
     glutReshapeFunc(reshapeCallback);
