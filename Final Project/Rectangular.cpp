@@ -158,17 +158,17 @@ Rectangular::Rectangular(GLdouble height, GLdouble width, MaterialInfo fieldMate
 }
 
 void Rectangular::drawBackground(){
+	glNewList(background, GL_COMPILE);
 	glEnable(GL_TEXTURE_2D);
 	//glDisable(GL_CULL_FACE);
 	//glDisable(GL_LIGHTING);
-
 	glPushMatrix();
 	glBindTexture(GL_TEXTURE_2D, texTop);
 	glBegin(GL_QUADS);
 		glTexCoord2d(0,0); glVertex3f(200.0,200.0,-200.0);
-		glTexCoord2d(200,0); glVertex3f(-200.0,200.0,-200.0);
-		glTexCoord2d(200,200); glVertex3f(-200.0,200.0,200.0);
-		glTexCoord2d(0,200); glVertex3f(200.0,200.0,200.0);
+		glTexCoord2d(1,0); glVertex3f(-200.0,200.0,-200.0);
+		glTexCoord2d(1,1); glVertex3f(-200.0,200.0,200.0);
+		glTexCoord2d(0,1); glVertex3f(200.0,200.0,200.0);
 	glEnd();
 	glPopMatrix();
 	glDisable(GL_TEXTURE_2D);
@@ -195,9 +195,9 @@ void Rectangular::drawBackground(){
 	glBindTexture(GL_TEXTURE_2D, texLeft);
 	glBegin(GL_QUADS);
 		glTexCoord2d(0,0); glVertex3f(-200.0,-200.0,-200.0);
-		glTexCoord2d(200,0); glVertex3f(-200.0,-200.0,200.0);
-		glTexCoord2d(200,200); glVertex3f(-200.0,200.0,200.0);
-		glTexCoord2d(0,200); glVertex3f(-200.0,200.0,-200.0);
+		glTexCoord2d(1,0); glVertex3f(-200.0,-200.0,200.0);
+		glTexCoord2d(1,1); glVertex3f(-200.0,200.0,200.0);
+		glTexCoord2d(0,1); glVertex3f(-200.0,200.0,-200.0);
 	glEnd();
 	glPopMatrix();
 	glDisable(GL_TEXTURE_2D);
@@ -207,9 +207,9 @@ void Rectangular::drawBackground(){
 	glBindTexture(GL_TEXTURE_2D, texRight);
 	glBegin(GL_QUADS);
 		glTexCoord2d(0,0); glVertex3f(200.0,-200.0,200.0);
-		glTexCoord2d(200,0); glVertex3f(200.0,-200.0,-200.0);
-		glTexCoord2d(200,200); glVertex3f(200.0,200.0,-200.0);
-		glTexCoord2d(0,200); glVertex3f(200.0,200.0,200.0);
+		glTexCoord2d(1,0); glVertex3f(200.0,-200.0,-200.0);
+		glTexCoord2d(1,1); glVertex3f(200.0,200.0,-200.0);
+		glTexCoord2d(0,1); glVertex3f(200.0,200.0,200.0);
 	glEnd();
 	glPopMatrix();
 	glDisable(GL_TEXTURE_2D);
@@ -219,9 +219,9 @@ void Rectangular::drawBackground(){
 	glBindTexture(GL_TEXTURE_2D, texFront);
 	glBegin(GL_QUADS);
 		glTexCoord2d(0,0); glVertex3f(-200.0,-200.0,200.0);
-		glTexCoord2d(200,0); glVertex3f(200.0,-200.0,200.0);
-		glTexCoord2d(200,200); glVertex3f(200.0,200.0,200.0);
-		glTexCoord2d(0,200); glVertex3f(-200.0,200.0,200.0);
+		glTexCoord2d(1,0); glVertex3f(200.0,-200.0,200.0);
+		glTexCoord2d(1,1); glVertex3f(200.0,200.0,200.0);
+		glTexCoord2d(0,1); glVertex3f(-200.0,200.0,200.0);
 	glEnd();
 	glPopMatrix();
 	glDisable(GL_TEXTURE_2D);
@@ -231,15 +231,19 @@ void Rectangular::drawBackground(){
 	glBindTexture(GL_TEXTURE_2D, texBottom);
 	glBegin(GL_QUADS);
 		glTexCoord2d(0,0); glVertex3f(200.0,-200.0, 200.0);
-		glTexCoord2d(200,0); glVertex3f(-200.0,-200.0,200.0);
-		glTexCoord2d(200,200); glVertex3f(-200.0,-200.0,-200.0);
-		glTexCoord2d(0,200); glVertex3f(200.0,-200.0,-200.0);
+		glTexCoord2d(1,0); glVertex3f(-200.0,-200.0,200.0);
+		glTexCoord2d(1,1); glVertex3f(-200.0,-200.0,-200.0);
+		glTexCoord2d(0,1); glVertex3f(200.0,-200.0,-200.0);
 	glEnd();
 	glPopMatrix();
 	glDisable(GL_TEXTURE_2D);
 
 	//glEnable(GL_CULL_FACE);
 	//glEnable(GL_LIGHTING);
+	glEndList();
+}
+GLuint Rectangular::getDisplayList(){
+	return background;
 }
 
 Rectangular::~Rectangular(){

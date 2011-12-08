@@ -17,6 +17,7 @@ public:
     GLdouble getWidth();
     MaterialInfo getMat();
     void drawBackground();
+	GLuint getDisplayList();
 
     
 protected:
