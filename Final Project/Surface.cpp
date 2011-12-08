@@ -18,4 +18,3 @@ GLuint Surface::getDisplayList(){
     return fieldd;
 }
 
-
