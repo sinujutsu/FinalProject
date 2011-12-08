@@ -18,7 +18,7 @@ class Arena{
 
 private:
     Rectangular* surface;
-    vector<Sphere*> rigidBodies;
+    vector<Sphere*> spheres;
     GLdouble xOffset;
     GLdouble yOffset;
     GLboolean wallsOrBalls;
@@ -26,6 +26,8 @@ private:
 public:
     void update(GLdouble dTime);
     void draw();
+    
+    void playerShoot(GLdouble angle);
     
 
     

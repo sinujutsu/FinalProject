@@ -13,6 +13,10 @@ void Sphere::printState(){
     cout << "Position (" << xPos << ","<< yPos << ")   Velcoity (" << xVel << "," << yVel << ")"<<endl;
 }
 
+void Sphere::die(){
+    
+}
+
 void Sphere::updateState(GLdouble dTime){
     xPos += xVel * dTime;
     yPos += yVel * dTime;

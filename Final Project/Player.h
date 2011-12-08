@@ -14,20 +14,21 @@
 
 class Player : public Sphere {
 public:
-    void shoot(GLdouble angle);
-    void die();
     
     GLboolean checkCollision(Sphere* otherSphere);
     
-    Player(GLdouble xPosition, GLdouble yPosition, GLdouble radius, GLdouble xVelocity, GLdouble yVelocity);
+    Player(GLdouble xPositionInit, GLdouble yPositionInit, GLdouble xVelocity, GLdouble yVelocity, GLdouble radius, MaterialInfo mat);
 private:
     void updateAngle();
+    
+    GLuint health;
     
     GLdouble xVel;
     GLdouble yVel;
     GLdouble xPos;
     GLdouble yPos;
     GLdouble size;
+    
     
     GLuint shape;
     

@@ -31,6 +31,7 @@ OpenGLContainer::~OpenGLContainer(){}
 
 void OpenGLContainer::initalizeOpenGLContainer(){
    // Player* thePlayer = new Player(0,0,2,0,0);
+    //
 }
 
 //

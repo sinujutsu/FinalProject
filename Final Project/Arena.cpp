@@ -10,6 +10,7 @@
 #include "OpenGLContainer.h"
 #include "Rectangular.h"
 #include "cs315.h"
+#include "Player.h"
 
 #include <vector>
 #include <math.h>
@@ -25,43 +26,43 @@ void Arena::update(GLdouble dTime){
     h = yOffset;
     
     
-    
-    for (GLuint i = 0; i<rigidBodies.size(); i++) {
-        Sphere* currentBody = rigidBodies[i];
+    //the spheres
+    for (GLuint i = 0; i<spheres.size(); i++) {
+        Sphere* currentSphere = spheres[i];
         
-        x = currentBody->getXPosition();
-        y = currentBody->getYPosition();
-        r = currentBody->getSize();
+        x = currentSphere->getXPosition();
+        y = currentSphere->getYPosition();
+        r = currentSphere->getSize();
         
         if(wallsOrBalls){
             if (x > h) {
-                currentBody->updateState(backInTime);
-                currentBody->bounceSide();
+                currentSphere->updateState(backInTime);
+                currentSphere->bounceSide();
                 
             }else
                 if (x < -h) {
-                    currentBody->updateState(backInTime);
-                    currentBody->bounceSide();
+                    currentSphere->updateState(backInTime);
+                    currentSphere->bounceSide();
                 }
             
             if (y > w) {
-                currentBody->updateState(backInTime);
-                currentBody->bounceTopOrBottom();
+                currentSphere->updateState(backInTime);
+                currentSphere->bounceTopOrBottom();
             }else
                 if (y < -w) {
-                    currentBody->updateState(backInTime);
-                    currentBody->bounceTopOrBottom();
+                    currentSphere->updateState(backInTime);
+                    currentSphere->bounceTopOrBottom();
                 }
             wallsOrBalls = false;
         }
         
         if(!wallsOrBalls){
-            for(GLuint n = 0; n<rigidBodies.size(); n++){
+            for(GLuint n = 0; n<spheres.size(); n++){
                 if (n != i) {
-                    if(currentBody->checkCollision(rigidBodies[n])){
-                        currentBody->updateState(backInTime);
-                        rigidBodies[n]->updateState(backInTime);
-                        currentBody->bounceSphere(rigidBodies[n]);
+                    if(currentSphere->checkCollision(spheres[n])){
+                        currentSphere->updateState(backInTime);
+                        spheres[n]->updateState(backInTime);
+                        currentSphere->bounceSphere(spheres[n]);
 
                     }
                 }
@@ -69,7 +70,7 @@ void Arena::update(GLdouble dTime){
             wallsOrBalls = true;
         }
         
-        currentBody->updateState(dTime);
+        currentSphere->updateState(dTime);
         
     }
     
@@ -77,17 +78,21 @@ void Arena::update(GLdouble dTime){
 
 //draws all objects, with their current position
 void Arena::draw(){
-    for (GLuint i = 0; i<rigidBodies.size(); i++) {
-        Sphere* currentBody = rigidBodies[i];
+    for (GLuint i = 0; i<spheres.size(); i++) {
+        Sphere* currentSphere = spheres[i];
         glPushMatrix();
-        instance->setMaterial(currentBody->getMaterial());
-        glTranslated(currentBody->getXPosition(), 1, currentBody->getYPosition());
-        glCallList(currentBody->getDisplayList());
+        instance->setMaterial(currentSphere->getMaterial());
+        glTranslated(currentSphere->getXPosition(), 1, currentSphere->getYPosition());
+        glCallList(currentSphere->getDisplayList());
         glPopMatrix();
     }
     
     instance->setMaterial(surface->getMat());
     glCallList(surface->getDisplayList());
+}
+
+void Arena::playerShoot(GLdouble angle){ 
+    
 }
 
 //constructor
@@ -103,10 +108,10 @@ Arena::Arena(){
     GLdouble ballPD = -5;
     GLdouble dBallPD = 3;
     for (GLuint i = 0; i<numBalls; i++) {
-        rigidBodies.push_back(new Sphere(ballPD,ballPD,5,10,1,MAT_BLUE));
+        spheres.push_back(new Sphere(ballPD,ballPD,5,10,1,MAT_BLUE));
         ballPD += dBallPD;
     }
-
+    spheres.push_back(new Player(-20,-20,-11,-10,3,MAT_GREEN));
     
 }
 
