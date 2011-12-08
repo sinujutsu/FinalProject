@@ -18,6 +18,16 @@ void Player::setYVelocity(GLdouble yV){
     yVel = yV;
 }
 
+GLdouble Player::getXVelocity()
+{
+	return xVel;
+}
+
+GLdouble Player::getYVelocity()
+{
+	return yVel;
+}
+
 void Player::loadPlayerMesh(const char *filename)
 {
 // Load the model

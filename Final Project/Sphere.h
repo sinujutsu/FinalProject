@@ -23,6 +23,7 @@ protected:
     GLdouble size;
     GLuint shape;
     MaterialInfo material;
+
 public:
     void printState();
     virtual void die(GLboolean showDeath);
