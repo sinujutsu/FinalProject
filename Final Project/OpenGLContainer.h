@@ -14,6 +14,9 @@ void redrawCallback();
 void reshapeCallback(int w, int h);
 void idleCallback();
 
+class Arena;
+class Player;
+
 class OpenGLContainer {
 public:
     OpenGLContainer();

@@ -5,16 +5,18 @@
 #ifndef Final_Project_Arena_h
 #define Final_Project_Arena_h
 
-
+#include "Player.h"
 #include "cs315.h"
 #include "MaterialInfo.h"
 #include "Sphere.h"
 #include "Surface.h"
 #include "Rectangular.h"
-#include "Player.h"
+
 #include "mesh.h"
 
 #include <vector>
+
+class Player;
 
 class Arena{
 
