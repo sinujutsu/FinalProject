@@ -18,10 +18,11 @@ public:
     MaterialInfo material;
     
     GLuint getDisplayList();
-    //GLdouble getBoundries();
+    GLuint getDisplayList2();
+	//GLdouble getBoundries();
     
     GLuint fieldd;
-    
+    GLuint back;
     
     
     

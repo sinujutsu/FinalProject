@@ -24,7 +24,7 @@ protected:
     GLdouble w;
     MaterialInfo mat;
     GLuint arena;
-	GLuint background;
+	GLuint back;
 
 };
 
