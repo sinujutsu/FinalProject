@@ -16,10 +16,11 @@ using namespace std;
 //Constructor
 //Makes a new arena, sets initial view
 OpenGLContainer::OpenGLContainer(){
-    theArena = new Arena(new Player(0,0,21,11.6,4,MAT_RED));
+    thePlayer = new Player(0,0,21,11.6,4,MAT_RED);
+    theArena = new Arena(thePlayer);
     pitch = 50;
     yaw = 0;
-    zoom = 20;
+    zoom = 200;
     centX = 0;
     centZ = 0;
     animate = false;

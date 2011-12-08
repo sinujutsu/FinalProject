@@ -14,16 +14,18 @@
 #include "mesh.h"
 
 class Player : public Sphere {
+
 public:
-    
     GLboolean checkCollision(Sphere* otherSphere);
     Player(GLdouble xPositionInit, GLdouble yPositionInit, GLdouble xVelocity, GLdouble yVelocity, GLdouble radius, MaterialInfo mat);
+	void loadPlayerMesh(const char *filename);
+	void drawPlayerMesh();
+	void setXVelocity(GLdouble xV);
+    void setYVelocity(GLdouble yV);
 
 private:
     void updateAngle();	
-	void loadPlayerMesh(const char *filename);
-	void drawPlayerMesh();
-    
+
     GLuint health;
     
     GLdouble xVel;

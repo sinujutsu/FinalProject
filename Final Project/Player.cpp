@@ -9,6 +9,14 @@
 #include <iostream>
 
 
+void Player::setXVelocity(GLdouble xV){
+    xVel = xV;
+}
+
+void Player::setYVelocity(GLdouble yV){
+    yVel = yV;
+}
+
 void Player::loadPlayerMesh(const char *filename)
 {
 // Load the model
@@ -119,7 +127,13 @@ GLboolean Player::checkCollision(Sphere* otherSphere){
     return hit;
 }
 
-Player::Player(GLdouble xPositionInit, GLdouble yPositionInit, GLdouble xVelocity, GLdouble yVelocity, GLdouble radius, MaterialInfo mat): Sphere(xPositionInit,  yPositionInit,  xVelocity,  yVelocity,  radius,  mat){
+Player::Player(GLdouble xPositionInit, GLdouble yPositionInit, GLdouble xVelocity, GLdouble yVelocity, GLdouble radius, MaterialInfo mat): Sphere(xPositionInit,  yPositionInit,  xVelocity,  yVelocity,  radius,  mat)
+{
     health = 5;
-    
+    shape = glGenLists(1);
+    glNewList(shape,GL_COMPILE);
+		instance->setMaterial(material);
+		glutWireSphere(size, 4, 5);
+		drawPlayerMesh();
+    glEndList();
 }

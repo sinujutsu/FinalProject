@@ -43,6 +43,8 @@ private:
     GLdouble last_time;
     GLdouble cur_time;
     GLdouble elapsed;
+
+	Player* thePlayer;
     
     void draw();
     void lights();

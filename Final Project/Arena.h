@@ -27,6 +27,8 @@ private:
     GLdouble yOffset;
     GLboolean wallsOrBalls;
     
+	void doWalls(Sphere* object, GLdouble dTime);
+
 public:
     void update(GLdouble dTime);
     void draw();
