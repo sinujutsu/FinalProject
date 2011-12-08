@@ -16,14 +16,16 @@ public:
     GLdouble getHeight();
     GLdouble getWidth();
     MaterialInfo getMat();
-    
+    void drawBackground();
 
     
 protected:
     GLdouble h;
     GLdouble w;
     MaterialInfo mat;
-    
+    GLuint arena;
+	GLuint background;
+
 };
 
 
