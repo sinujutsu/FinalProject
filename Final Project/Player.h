@@ -23,8 +23,12 @@ public:
 	GLuint getMeshDL();
 	void loadPlayerMesh(const char *filename);
 	void drawPlayerMesh();
+
 	void setXVelocity(GLdouble xV);
     void setYVelocity(GLdouble yV);
+
+	GLdouble getXVelocity();
+    GLdouble getYVelocity();
 
 private:
     void updateAngle();	

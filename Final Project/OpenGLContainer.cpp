@@ -71,29 +71,22 @@ void OpenGLContainer::keyDown(unsigned char key, int x, int y){
             animate = !animate;
             break;
 		case 'w':
-			//thePlayer.yVel += 5
-			//if(thePlayer.yVel > 15){
-			//thePlayer.yVel == 15;
-			//}
+			thePlayer->setYVelocity(thePlayer->getYVelocity() + moveConst);
+			if(thePlayer->getYVelocity() > 15){ thePlayer->setYVelocity(15); }
 			break;
 		case 'a':
-			//thePlayer.xVel -= 5
-			//if(thePlayer.xVel < -15){
-			//thePlayer.xVel == -15;
-			//}
+			thePlayer->setXVelocity(thePlayer->getXVelocity() + moveConst);
+			if(thePlayer->getXVelocity() > 15){ thePlayer->setXVelocity(15); }
 			break;
 		case 's':
-			//thePlayer.yVel -= 5
-			//if(thePlayer.yVel < -15){
-			//thePlayer.yVel == -15;
-			//}
+			thePlayer->setYVelocity(thePlayer->getYVelocity() - moveConst);
+			if(thePlayer->getYVelocity() < -15){ thePlayer->setYVelocity(-15); }
 			break;
 		case 'd':
-			//thePlayer.xVel += 5
-			//if(thePlayer.xVel > 15){
-			//thePlayer.xVel == 15;
-			//}
+			thePlayer->setXVelocity(thePlayer->getXVelocity() - moveConst);
+			if(thePlayer->getXVelocity() < -15){ thePlayer->setXVelocity(-15); }
 			break;
+
         case 'z':
             pitch -= CAMERA_ADJ;
             break;
@@ -158,19 +151,11 @@ void OpenGLContainer::idle(){
         last_time = cur_time;
         theArena->update(elapsed);
 		//cout<< elapsed << endl;
-		//if(thePlayer.xVel > 0){
-		//thePlayer.xVel -= 1;
-		//}
-		//if(thePlayer.xVel < 0){
-		//thePlayer.xVel += 1;
-		//}
-		//if(thePlayer.yVel > 0){
-		//thePlayer.xVel -= 1;
-		//}
-		//if(thePlayer.yVel < 0){
-		//thePlayer.xVel += 1;
-		//}
-        //cout<< elapsed << endl;
+		if(thePlayer->getXVelocity() > 0){ thePlayer->setXVelocity( thePlayer->getXVelocity() - frictionConst); }
+		if(thePlayer->getXVelocity() < 0){ thePlayer->setXVelocity( thePlayer->getXVelocity() + frictionConst); }
+		if(thePlayer->getYVelocity() > 0){ thePlayer->setYVelocity( thePlayer->getYVelocity() - frictionConst); }
+		if(thePlayer->getYVelocity() < 0){ thePlayer->setYVelocity( thePlayer->getYVelocity() + frictionConst); }
+        cout<< elapsed << endl;
         glutPostRedisplay();
     }
 }

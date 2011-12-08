@@ -124,7 +124,9 @@ void Arena::draw(){
         glPushMatrix();
         instance->setMaterial(currentSphere->getMaterial());
         glTranslated(currentSphere->getXPosition(), 1, currentSphere->getYPosition());
-        glCallList(currentSphere->getDisplayList());
+        if (!(currentSphere->toDelete)) {
+            glCallList(currentSphere->getDisplayList());
+        }
         glPopMatrix();
     }
     
@@ -147,7 +149,10 @@ void Arena::draw(){
         instance->setMaterial(bullets[i]->getMaterial());
         glPushMatrix();
         glTranslated(currentBullet->getXPosition(), 1, currentBullet->getYPosition());
-        glCallList(currentBullet->getDisplayList());
+        if (!(currentBullet->toDelete)) {
+            glCallList(currentBullet->getDisplayList());
+        }
+        
         glPopMatrix();
     }
     
@@ -164,8 +169,8 @@ void Arena::playerShoot(GLdouble angle){
     bXPos = player->getXPosition();
     bYPos = player->getYPosition();
     
-    bYVel = bulletSpeed*cos(angle);
-    bXVel = bulletSpeed*sin(angle);
+    bYVel = bulletSpeed*cos(angle)+player->getXV()+100;
+    bXVel = bulletSpeed*sin(angle)+player->getYV()+100;
     
     
     

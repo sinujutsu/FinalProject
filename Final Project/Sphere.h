@@ -1,4 +1,4 @@
-//
+ //
 //  Sphere.h
 
 
@@ -24,6 +24,7 @@ protected:
     GLuint shape;
     MaterialInfo material;
 public:
+    GLboolean toDelete;
     void printState();
     virtual void die(GLboolean showDeath);
     virtual void updateState(GLdouble dTime); 

@@ -23,6 +23,10 @@ void Sphere::die(GLboolean showDeath){
 void Sphere::updateState(GLdouble dTime){
     xPos += xVel * dTime;
     yPos += yVel * dTime;
+    if (toDelete == true) {
+        size = 0;
+        
+    }
 }
 
 
@@ -118,6 +122,7 @@ Sphere::Sphere(GLdouble xPositionInit, GLdouble yPositionInit, GLdouble xVelocit
     yVel = yVelocity;
     size = radius;
     material = mat;
+    toDelete = false;
     
     shape = glGenLists(1);
     glNewList(shape,GL_COMPILE);
