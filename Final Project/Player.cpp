@@ -6,6 +6,7 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 #include "Player.h"
+#include "OpenGLContainer.h"
 #include <iostream>
 
 
