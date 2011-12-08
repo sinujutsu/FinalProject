@@ -16,7 +16,7 @@ using namespace std;
 //Constructor
 //Makes a new arena, sets initial view
 OpenGLContainer::OpenGLContainer(){
-    thePlayer = new Player(0,0,21,11.6,4,MAT_RED);
+    thePlayer = new Player(-10,-10,0,0,4,MAT_RED);
 	thePlayer->loadPlayerMesh("StarCraft_Wraith.obj");
     theArena = new Arena(thePlayer);
     pitch = 50;
