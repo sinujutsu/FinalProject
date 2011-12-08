@@ -111,9 +111,9 @@ public:
 //define new materials here__________Specular___Ambient__Diffuse___Emitted__Shine
 static const MaterialInfo MAT_WHITE ("#F0F0F0","#F0F0F0","#ffffff","F7EDF0",90);
 static const MaterialInfo MAT_GRAY  ("#ffffff","#ffffff","#ffffff","BAA9AE",90);
-static const MaterialInfo MAT_BLUE  ("#7fff00","#3D00F5","#0000ff","3881CF",90);
-static const MaterialInfo MAT_GREEN ("#7fff00","#00F53D","#7fff00","38CF79",90);
-static const MaterialInfo MAT_RED   ("#ff0000","#B8002E","#ff0000","FA9039",90);
+static const MaterialInfo MAT_BLUE  ("#3399FF","#3399FF","#3399FF","3399FF",90);
+static const MaterialInfo MAT_GREEN ("#3399FF","#3399FF","#3399FF","3399FF",90);
+static const MaterialInfo MAT_RED   ("#FF003F","#FF003F","#FF003F","FF003F",90);
 static const MaterialInfo MAT_YELLOW("#ffff00","#FF0000","#FF0000","FAF739",90);
 static const MaterialInfo MAT_BLACK("#000000","#000000","#000000","000000",90);
 
