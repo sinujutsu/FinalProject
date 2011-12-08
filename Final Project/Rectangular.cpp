@@ -55,7 +55,7 @@ Rectangular::Rectangular(GLdouble height, GLdouble width, MaterialInfo fieldMate
     glNewList(fieldd,GL_COMPILE);
 
 	glEnable(GL_TEXTURE_2D);
-	glDisable(GL_CULL_FACE);
+	//glDisable(GL_CULL_FACE);
 	glPushMatrix();
 	glBindTexture(GL_TEXTURE_2D, texArena);
     glBegin(GL_QUADS);
@@ -66,9 +66,10 @@ Rectangular::Rectangular(GLdouble height, GLdouble width, MaterialInfo fieldMate
     glTexCoord2d(0,1); glVertex3d(width, 0, -height);
 	glPopMatrix();
 	glDisable(GL_TEXTURE_2D);
-	glEnable(GL_CULL_FACE);
+	//glEnable(GL_CULL_FACE);
 
     //corner squares
+	instance->setMaterial(MAT_BLACK);
     glVertex3d(height+thick, thick, width+thick);
     glVertex3d(height, thick, width+thick);
     glVertex3d(height, thick, width);

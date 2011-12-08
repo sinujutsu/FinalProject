@@ -115,6 +115,7 @@ static const MaterialInfo MAT_BLUE  ("#7fff00","#3D00F5","#0000ff","3881CF",90);
 static const MaterialInfo MAT_GREEN ("#7fff00","#00F53D","#7fff00","38CF79",90);
 static const MaterialInfo MAT_RED   ("#ff0000","#B8002E","#ff0000","FA9039",90);
 static const MaterialInfo MAT_YELLOW("#ffff00","#FF0000","#FF0000","FAF739",90);
+static const MaterialInfo MAT_BLACK("#000000","#000000","#000000","000000",90);
 
 #endif
 
